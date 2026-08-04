@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
+  <!-- Meta viewport wajib untuk responsivitas mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solska — Premium Shoe Care</title>
   <link rel="stylesheet" href="./style.css">
   <style>
@@ -12,7 +14,7 @@
   </style>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
   <style type="text/tailwindcss">
     @layer base {
       body { @apply min-h-dvh text-base font-normal text-[#090909] px-3.5 pt-3.5; }
@@ -20,9 +22,9 @@
   </style>
 
   <!-- NAV -->
-  <nav class="flex items-center justify-between max-w-5xl mx-auto relative z-5 overflow-hidden">
-    <div class="flex items-center gap-1.5 bg-white px-5 rounded-br-4xl relative after:content-[''] after:absolute after:bg-[#0a0a0a] after:w-1/2 after:h-1/2 after:-bottom-1 after:-right-1 after:-z-5 self-stretch w-full max-w-45">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <nav class="flex items-center justify-between max-w-5xl mx-auto relative z-30 overflow-hidden">
+    <div class="flex items-center gap-1.5 bg-white px-4 sm:px-5 rounded-br-4xl relative after:content-[''] after:absolute after:bg-[#0a0a0a] after:w-1/2 after:h-1/2 after:-bottom-1 after:-right-1 after:-z-10 self-stretch w-full max-w-[45%] sm:max-w-45">
+      <svg width="36" height="36" class="sm:w-10 sm:h-10 shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="40" height="40" rx="6" fill="#F1BF0A" />
         <path d="M8 27 L8 23 C8 22 9 21 10 21 L13 20 L17 15 C18 14 19 14 20 14 L23 15 L26 17 L30 19 C31 19 32 20 32 21 L32 25 C32 26 31 27 30 27 L10 27 C9 27 8 27 8 27 Z" fill="#090909" />
         <rect x="8" y="26" width="24" height="3" rx="1" fill="#090909" />
@@ -30,64 +32,64 @@
         <path d="M17 22 L22 22" stroke="#F1BF0A" stroke-width="1" stroke-linecap="round" />
         <path d="M14 22 Q 19 20 25 23" stroke="#F1BF0A" stroke-width="1.5" fill="none" stroke-linecap="round" />
       </svg>
-      <span class="font-anton select-none">SOLSKA</span>
+      <span class="font-anton select-none text-xl sm:text-2xl">SOLSKA</span>
     </div>
 
-    <div class="flex items-center justify-end min-[480px]:justify-between gap-4 flex-1 bg-[#0a0a0a] text-white p-3.5 rounded-t-4xl">
+    <div class="flex items-center justify-end min-[480px]:justify-between gap-2 sm:gap-4 flex-1 bg-[#0a0a0a] text-white p-3 sm:p-3.5 rounded-t-4xl">
       <div class="hidden md:block"></div>
 
       <ul class="hidden md:flex items-center gap-6 py-2.5">
         <li><a href="index.html" class="hover:text-[#F1BF0A] transition-colors">Home</a></li>
       </ul>
 
-      <button type="button" id="menu-toggle" class="cursor-pointer rounded" aria-label="Buka pencarian layanan">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-9">
+      <button type="button" id="menu-toggle" class="cursor-pointer rounded p-1" aria-label="Buka pencarian layanan">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-7 sm:size-9">
           <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
         </svg>
       </button>
 
-      <a href="https://wa.me/6281234567890?text=Halo%20Solska%2C%20saya%20ingin%20konsultasi%20layanan%20cuci%20sepatu" target="_blank" rel="noopener" class="hidden min-[480px]:flex items-center gap-2 bg-[#F1BF0A] rounded-full py-1.5 pl-1.5 pr-4 text-[#090909] whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-9 after:w-9 hover:after:w-full after:transition-[width] after:duration-1600 after:ease-[linear(0,0.029_0.8%,0.13_1.8%,0.908_7.2%,1.051_9.1%,1.112_11.2%,1.116_12.2%,1.106_13.4%,1.007_19.5%,0.987_23.1%,1.001_35%,1)] overflow-hidden hover:after:h-full hover:after:left-0">
+      <a href="https://wa.me/6281234567890?text=Halo%20Solska%2C%20saya%20ingin%20konsultasi%20layanan%20cuci%20sepatu" target="_blank" rel="noopener" class="hidden min-[480px]:flex items-center gap-2 bg-[#F1BF0A] rounded-full py-1.5 pl-1.5 pr-3 sm:pr-4 text-[#090909] whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-9 after:w-9 hover:after:w-full after:transition-[width] after:duration-1600 after:ease-[linear(0,0.029_0.8%,0.13_1.8%,0.908_7.2%,1.051_9.1%,1.112_11.2%,1.116_12.2%,1.106_13.4%,1.007_19.5%,0.987_23.1%,1.001_35%,1)] overflow-hidden hover:after:h-full hover:after:left-0">
         <div class="rounded-full p-1.5 relative z-10">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
           </svg>
         </div>
-        <span class="relative z-10">Pesan Sekarang</span>
+        <span class="relative z-10 text-sm sm:text-base">Pesan Sekarang</span>
       </a>
     </div>
   </nav>
 
   <!-- SEARCH PANEL (Hamburger menu dengan autocomplete) -->
   <div id="search-panel" class="fixed inset-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
-    <div class="min-h-dvh p-6 sm:p-10 flex flex-col">
+    <div class="min-h-dvh p-4 sm:p-10 flex flex-col">
       <div class="max-w-2xl mx-auto w-full flex-1 flex flex-col">
-        <div class="flex items-center justify-between mb-6">
-          <span class="font-anton text-white text-2xl sm:text-3xl">CARI LAYANAN</span>
-          <button id="close-search" class="size-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-[#F1BF0A] hover:text-[#090909] text-white transition-colors" aria-label="Tutup">
+        <div class="flex items-center justify-between mb-4 sm:mb-6">
+          <span class="font-anton text-white text-xl sm:text-3xl">CARI LAYANAN</span>
+          <button id="close-search" class="size-9 sm:size-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-[#F1BF0A] hover:text-[#090909] text-white transition-colors" aria-label="Tutup">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
               <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
             </svg>
           </button>
         </div>
 
-        <div class="relative mb-6">
+        <div class="relative mb-4 sm:mb-6">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5 absolute left-4 top-1/2 -translate-y-1/2 text-black/40 pointer-events-none">
             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
-          <input id="search-input" type="text" placeholder="Ketik nama layanan — contoh: cuci, boots, repaint..." class="w-full bg-white text-black rounded-full pl-12 pr-6 py-4 text-lg focus:outline-none focus:ring-4 focus:ring-[#F1BF0A]/40" autocomplete="off" />
+          <input id="search-input" type="text" placeholder="Ketik nama layanan — cuci, boots..." class="w-full bg-white text-black rounded-full pl-12 pr-4 py-3 sm:py-4 text-base sm:text-lg focus:outline-none focus:ring-4 focus:ring-[#F1BF0A]/40" autocomplete="off" />
         </div>
 
-        <div class="mb-6">
+        <div class="mb-4 sm:mb-6">
           <p class="text-white/40 text-xs font-semibold tracking-wider mb-2">MENU</p>
-          <a href="home.html" class="flex items-center justify-between p-3 rounded-2xl hover:bg-white/10 text-white transition-colors group">
-            <span class="text-xl font-anton">Home</span>
+          <a href="index.html" class="flex items-center justify-between p-3 rounded-2xl hover:bg-white/10 text-white transition-colors group">
+            <span class="text-lg sm:text-xl font-anton">Home</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5 group-hover:translate-x-1 transition-transform">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
           </a>
         </div>
 
-        <div class="flex-1 overflow-y-auto">
+        <div class="flex-1 overflow-y-auto pb-10">
           <p id="results-label" class="text-white/40 text-xs font-semibold tracking-wider mb-2">LAYANAN TERSEDIA</p>
           <ul id="search-results" class="space-y-1"></ul>
         </div>
@@ -96,14 +98,14 @@
   </div>
 
   <!-- HEADER -->
-  <header class="max-w-5xl mx-auto bg-[#0a0a0a] text-white px-3.5 pb-3.5 pt-8 sm:pt-14 rounded-tl-4xl rounded-b-4xl relative z-0 overflow-hidden">
-    <h1 class="font-anton text-white text-6xl sm:text-8xl tracking-tight text-center select-none">SOLSKA</h1>
+  <header class="max-w-5xl mx-auto bg-[#0a0a0a] text-white px-3.5 pb-3.5 pt-8 sm:pt-14 rounded-tl-4xl rounded-b-4xl relative z-20 overflow-hidden">
+    <h1 class="font-anton text-white text-5xl sm:text-7xl md:text-8xl tracking-tight text-center select-none">SOLSKA</h1>
 
     <div class="mt-6 sm:mt-12 pt-7 bg-[#1a1a1a] rounded-4xl">
       <div class="flex flex-col sm:flex-row sm:items-stretch justify-between sm:bg-[#1a1a1a] rounded-b-4xl relative z-10 px-3 sm:px-6 pb-6">
         <div class="flex flex-col justify-between">
-          <h2 class="text-[#F1BF0A] text-5xl">PREMIUM</h2>
-          <p class="mt-2 mb-6 sm:mb-0 sm:mt-0 sm:max-w-xs z-200">Perawatan sepatu profesional untuk gaya hidup aktif. Bersih, wangi, dan tampil seperti baru kembali.</p>
+          <h2 class="text-[#F1BF0A] text-4xl sm:text-5xl">PREMIUM</h2>
+          <p class="mt-2 mb-6 sm:mb-0 sm:mt-0 sm:max-w-xs z-20 text-sm sm:text-base">Perawatan sepatu profesional untuk gaya hidup aktif. Bersih, wangi, dan tampil seperti baru kembali.</p>
         </div>
         <div class="bg-[#2a2a2a] rounded-2xl p-4 text-white sm:max-w-[185px]">
           <div class="flex items-center gap-4 sm:gap-0 sm:flex-col sm:items-start">
@@ -118,19 +120,19 @@
         </div>
       </div>
 
-      <div class="flex items-stretch justify-between relative z-5 after:content-[''] after:absolute after:-top-1/2 after:left-0 after:h-20 after:w-24 after:bg-[#0a0a0a] after:-z-5 before:content-[''] before:absolute before:-top-1/2 before:right-0 before:h-20 before:w-24 before:bg-[#0a0a0a] before:-z-5 after:hidden sm:after:block before:hidden sm:before:block">
-        <div class="sm:bg-[#0a0a0a] pb-3 pl-3 sm:p-6 rounded-tr-4xl rounded-bl-4xl relative after:content-[''] after:absolute after:bottom-0 after:-right-1/2 after:h-1/2 after:w-full after:bg-[#0a0a0a] after:-z-5 after:hidden sm:after:block">
-          <a href="https://wa.me/6281234567890?text=Halo%20Solska%2C%20saya%20ingin%20pesan%20layanan%20cuci%20sepatu" target="_blank" rel="noopener" class="flex items-center gap-2 bg-[#F1BF0A] rounded-full py-1.5 pl-1.5 pr-4 text-[#090909] whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-9 after:w-9 hover:after:w-full after:transition-[width] after:duration-1600 after:ease-[linear(0,0.029_0.8%,0.13_1.8%,0.908_7.2%,1.051_9.1%,1.112_11.2%,1.116_12.2%,1.106_13.4%,1.007_19.5%,0.987_23.1%,1.001_35%,1)] overflow-hidden hover:after:h-full hover:after:left-0">
+      <div class="flex items-stretch justify-between relative z-10 after:content-[''] after:absolute after:-top-1/2 after:left-0 after:h-20 after:w-24 after:bg-[#0a0a0a] after:-z-10 before:content-[''] before:absolute before:-top-1/2 before:right-0 before:h-20 before:w-24 before:bg-[#0a0a0a] before:-z-10 after:hidden sm:after:block before:hidden sm:before:block">
+        <div class="sm:bg-[#0a0a0a] pb-3 pl-3 sm:p-6 rounded-tr-4xl rounded-bl-4xl relative after:content-[''] after:absolute after:bottom-0 after:-right-1/2 after:h-1/2 after:w-full after:bg-[#0a0a0a] after:-z-10 after:hidden sm:after:block">
+          <a href="https://wa.me/6281234567890?text=Halo%20Solska%2C%20saya%20ingin%20pesan%20layanan%20cuci%20sepatu" target="_blank" rel="noopener" class="flex items-center gap-2 bg-[#F1BF0A] rounded-full py-1.5 pl-1.5 pr-3 sm:pr-4 text-[#090909] whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-9 after:w-9 hover:after:w-full after:transition-[width] after:duration-1600 after:ease-[linear(0,0.029_0.8%,0.13_1.8%,0.908_7.2%,1.051_9.1%,1.112_11.2%,1.116_12.2%,1.106_13.4%,1.007_19.5%,0.987_23.1%,1.001_35%,1)] overflow-hidden hover:after:h-full hover:after:left-0">
             <div class="rounded-full p-1.5 relative z-10">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
               </svg>
             </div>
-            <span class="relative z-10">Pesan via WhatsApp</span>
+            <span class="relative z-10 text-sm sm:text-base">Pesan via WhatsApp</span>
           </a>
         </div>
         <div class="hidden sm:block bg-[#1a1a1a] flex-1 rounded-b-4xl relative z-10"></div>
-        <div class="hidden sm:flex items-center gap-3 bg-[#0a0a0a] p-6 rounded-tl-4xl rounded-br-4xl relative after:content-[''] after:absolute after:bottom-0 after:-left-1/2 after:h-1/2 after:w-full after:bg-[#0a0a0a] after:-z-5">
+        <div class="hidden sm:flex items-center gap-3 bg-[#0a0a0a] p-6 rounded-tl-4xl rounded-br-4xl relative after:content-[''] after:absolute after:bottom-0 after:-left-1/2 after:h-1/2 after:w-full after:bg-[#0a0a0a] after:-z-10">
           <button type="button" class="flex items-center bg-[#F1BF0A] rounded-full p-1.5 text-[#090909] whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-9 after:w-9 after:transition-[width,left] after:duration-2000 after:ease-[linear(0,0.014_0.4%,0.054_0.8%,0.228_1.7%,1.141_4.6%,1.402_5.6%,1.565_6.6%,1.599_7%,1.617_7.5%,1.611_7.9%,1.58_8.4%,1.47_9.3%,0.924_12.1%,0.747_13.2%,0.655_14.1%,0.633_14.5%,0.62_15%,0.622_15.4%,0.639_15.9%,0.705_16.8%,1.052_19.7%,1.159_20.8%,1.214_21.7%,1.235_22.6%,1.221_23.5%,1.18_24.4%,0.972_27.2%,0.905_28.3%,0.869_29.2%,0.855_30.1%,0.862_31%,0.887_31.9%,1.06_35.9%,1.081_36.8%,1.089_37.7%,1.084_38.6%,1.069_39.5%,0.964_43.4%,0.945_45.2%,0.954_46.8%,1.019_50.7%,1.034_52.7%,1.029_54.3%,0.989_58.2%,0.979_60.3%,1.013_67.8%,0.992_75.3%,1.005_82.7%,0.997_90.4%,1)] overflow-hidden hover:after:size-full hover:after:left-0 cursor-pointer">
             <span class="rounded-full p-1.5 relative z-10">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -150,7 +152,7 @@
     </div>
 
     <!-- Hero shoe SVG (transparan, on-brand) -->
-    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" class="hidden md:block absolute bottom-2 left-[53%] -translate-x-1/2 z-100 select-none pointer-events-none w-[55vw] max-w-[680px]" draggable="false" style="filter: drop-shadow(8px 8px 18px rgba(0, 0, 0, 0.55));">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" class="hidden md:block absolute bottom-2 left-[53%] -translate-x-1/2 z-30 select-none pointer-events-none w-[55vw] max-w-[680px]" draggable="false" style="filter: drop-shadow(8px 8px 18px rgba(0, 0, 0, 0.55));">
       <ellipse cx="300" cy="268" rx="240" ry="6" fill="black" opacity="0.45" />
       <path d="M50 240 Q50 250 60 250 L540 250 Q550 250 550 240 L550 220 L50 220 Z" fill="#0a0a0a" />
       <path d="M50 220 L550 220 L550 195 Q550 185 540 185 L60 185 Q50 185 50 195 Z" fill="#ffffff" />
@@ -172,28 +174,28 @@
   </header>
 
   <!-- MAIN -->
-  <main class="max-w-5xl mx-auto mt-20 overflow-hidden sm:px-9.5">
-    <div class="flex flex-col md:flex-row md:items-end gap-4 md:gap-10">
-      <h1 class="font-anton text-5xl/14 md:text-6xl/18 flex-1">LAYANAN <br class="hidden md:inline">CUCI SEPATU</h1>
+  <main class="max-w-5xl mx-auto mt-12 sm:mt-20 overflow-hidden px-1 sm:px-8 lg:px-4">
+    <div class="flex flex-col md:flex-row md:items-end gap-4 md:gap-10 px-2 sm:px-0">
+      <h1 class="font-anton text-4xl/10 sm:text-5xl/14 md:text-6xl/18 flex-1">LAYANAN <br class="hidden md:inline">CUCI SEPATU</h1>
       <div class="flex-1 space-y-4">
-        <p>Layanan cuci sepatu profesional dengan hasil maksimal. Menggunakan produk premium dan teknisi berpengalaman untuk sepatu kesayanganmu.</p>
+        <p class="text-sm sm:text-base">Layanan cuci sepatu profesional dengan hasil maksimal. Menggunakan produk premium dan teknisi berpengalaman untuk sepatu kesayanganmu.</p>
 
-        <a href="https://wa.me/6281234567890?text=Halo%20Solska%2C%20saya%20ingin%20konsultasi%20layanan" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[#F1BF0A] rounded-full py-1.25 pl-1.25 pr-3.5 text-[#090909] whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-9 after:w-9 hover:after:w-full after:transition-[width,color] after:duration-1600 after:ease-[linear(0,0.029_0.8%,0.13_1.8%,0.908_7.2%,1.051_9.1%,1.112_11.2%,1.116_12.2%,1.106_13.4%,1.007_19.5%,0.987_23.1%,1.001_35%,1)] overflow-hidden hover:after:h-full hover:after:left-0 border border-[#F1BF0A]">
+        <a href="https://wa.me/6281234567890?text=Halo%20Solska%2C%20saya%20ingin%20konsultasi%20layanan" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[#F1BF0A] rounded-full py-1.25 pl-1.25 pr-3 sm:pr-3.5 text-[#090909] whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-9 after:w-9 hover:after:w-full after:transition-[width,color] after:duration-1600 after:ease-[linear(0,0.029_0.8%,0.13_1.8%,0.908_7.2%,1.051_9.1%,1.112_11.2%,1.116_12.2%,1.106_13.4%,1.007_19.5%,0.987_23.1%,1.001_35%,1)] overflow-hidden hover:after:h-full hover:after:left-0 border border-[#F1BF0A]">
           <div class="rounded-full p-1.5 relative z-10">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
             </svg>
           </div>
-          <span class="relative z-10">Konsultasi Gratis</span>
+          <span class="relative z-10 text-sm sm:text-base">Konsultasi Gratis</span>
         </a>
       </div>
     </div>
 
-    <ul id="product-list" role="list" class="grid grid-cols-1 gap-6 min-[480px]:grid-cols-2 md:grid-cols-3 mt-10"></ul>
+    <ul id="product-list" role="list" class="grid grid-cols-1 gap-4 sm:gap-6 min-[480px]:grid-cols-2 md:grid-cols-3 mt-8 sm:mt-10"></ul>
   </main>
 
   <!-- FOOTER -->
-  <footer class="max-w-5xl mx-auto bg-[#0a0a0a] text-white px-4 sm:px-9.5 pb-4 mt-20 pt-6 sm:pt-10 rounded-t-4xl relative z-0 overflow-hidden">
+  <footer class="max-w-5xl mx-auto bg-[#0a0a0a] text-white px-4 sm:px-9.5 pb-4 mt-12 sm:mt-20 pt-6 sm:pt-10 rounded-t-4xl relative z-20 overflow-hidden">
     <nav class="-mb-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm/6">
       <a href="index.html" class="hover:text-[#F1BF0A] transition-colors">Home</a>
     </nav>
@@ -257,13 +259,13 @@
       <li class="col-span-1 flex flex-col rounded-3xl overflow-hidden">
         <div>
           <div class="flex">
-            <div class="pl-3 flex-1 bg-[#e9ecf6] flex gap-2 items-center rounded-tr-2xl relative after:content-[''] after:absolute after:top-0 after:right-0 after:h-1/2 after:w-1/2 after:bg-white after:-z-5">
-              <span class="line-through text-[#b7bac5]">${formatRupiah(service.originalPrice)}</span>
-              <span class="font-semibold">${formatRupiah(service.price)}</span>
+            <div class="pl-3 pr-2 flex-1 min-w-0 bg-[#e9ecf6] flex gap-1.5 sm:gap-2 items-center rounded-tr-2xl relative after:content-[''] after:absolute after:top-0 after:right-0 after:h-1/2 after:w-1/2 after:bg-white after:-z-10">
+              <span class="line-through text-[#b7bac5] text-[10px] sm:text-sm shrink-0">${formatRupiah(service.originalPrice)}</span>
+              <span class="font-semibold text-[11px] sm:text-sm shrink-0">${formatRupiah(service.price)}</span>
             </div>
-            <div class="flex items-center bg-white pl-2 pr-2 pt-1 pb-1.5 rounded-bl-3xl rounded-tr-3xl relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-1/2 after:bg-[#e9ecf6] after:-z-5">
-              <a href="${waLink(service.name)}" target="_blank" rel="noopener" class="flex items-center gap-1.5 bg-[#F1BF0A] rounded-full py-1 px-3 text-[#090909] text-sm font-semibold whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-6 after:w-6 after:transition-[width,left] after:duration-2000 after:ease-[linear(0,0.014_0.4%,0.054_0.8%,0.228_1.7%,1.141_4.6%,1.402_5.6%,1.565_6.6%,1.599_7%,1.617_7.5%,1.611_7.9%,1.58_8.4%,1.47_9.3%,0.924_12.1%,0.747_13.2%,0.655_14.1%,0.633_14.5%,0.62_15%,0.622_15.4%,0.639_15.9%,0.705_16.8%,1.052_19.7%,1.159_20.8%,1.214_21.7%,1.235_22.6%,1.221_23.5%,1.18_24.4%,0.972_27.2%,0.905_28.3%,0.869_29.2%,0.855_30.1%,0.862_31%,0.887_31.9%,1.06_35.9%,1.081_36.8%,1.089_37.7%,1.084_38.6%,1.069_39.5%,0.964_43.4%,0.945_45.2%,0.954_46.8%,1.019_50.7%,1.034_52.7%,1.029_54.3%,0.989_58.2%,0.979_60.3%,1.013_67.8%,0.992_75.3%,1.005_82.7%,0.997_90.4%,1)] overflow-hidden hover:after:h-full hover:after:w-full hover:after:left-0 cursor-pointer border border-[#F1BF0A]">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="size-3.5 relative z-10">
+            <div class="flex items-center bg-white pl-2 pr-2 pt-1 pb-1.5 rounded-bl-3xl rounded-tr-3xl relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1/2 after:w-1/2 after:bg-[#e9ecf6] after:-z-10 shrink-0">
+              <a href="${waLink(service.name)}" target="_blank" rel="noopener" class="flex items-center gap-1 sm:gap-1.5 bg-[#F1BF0A] rounded-full py-1 px-2 sm:px-3 text-[#090909] text-[11px] sm:text-sm font-semibold whitespace-nowrap relative after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1.5 after:rounded-full after:bg-white after:h-6 after:w-6 sm:after:h-7 sm:after:w-7 after:transition-[width,left] after:duration-2000 after:ease-[linear(0,0.014_0.4%,0.054_0.8%,0.228_1.7%,1.141_4.6%,1.402_5.6%,1.565_6.6%,1.599_7%,1.617_7.5%,1.611_7.9%,1.58_8.4%,1.47_9.3%,0.924_12.1%,0.747_13.2%,0.655_14.1%,0.633_14.5%,0.62_15%,0.622_15.4%,0.639_15.9%,0.705_16.8%,1.052_19.7%,1.159_20.8%,1.214_21.7%,1.235_22.6%,1.221_23.5%,1.18_24.4%,0.972_27.2%,0.905_28.3%,0.869_29.2%,0.855_30.1%,0.862_31%,0.887_31.9%,1.06_35.9%,1.081_36.8%,1.089_37.7%,1.084_38.6%,1.069_39.5%,0.964_43.4%,0.945_45.2%,0.954_46.8%,1.019_50.7%,1.034_52.7%,1.029_54.3%,0.989_58.2%,0.979_60.3%,1.013_67.8%,0.992_75.3%,1.005_82.7%,0.997_90.4%,1)] overflow-hidden hover:after:h-full hover:after:w-full hover:after:left-0 cursor-pointer border border-[#F1BF0A]">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="size-3 sm:size-3.5 relative z-10">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                 </svg>
                 <span class="relative z-10">Order</span>
