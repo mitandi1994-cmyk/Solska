@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solska - Premium Shoe Care & Franchise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&display=swap" rel="stylesheet" />
+  
+<style>
+:root {
+  --bg: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --bg-card-2: #111111;
+  --ink: #000000;
+  --ink-soft: #333333;
+  --mute: #777777;
+  --line: #E0E0E0;
+  --yellow-1: #FFD400;
+  --yellow-2: #FFC107;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Manrope", system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body { background: radial-gradient(120% 70% at 50% 0%, #FFFFFF 0%, #FAFAFA 60%, #F0F0F0 100%); min-height: 100vh; }
+
+.grain { position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: 0.04; mix-blend-mode: multiply; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+
+/* ============ NAV ============ */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 20px 5vw; display: flex; align-items: center; gap: 24px; }
+.logo { background: var(--bg-card); padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 18px; box-shadow: 0 12px 22px -10px rgba(0,0,0,0.08); white-space: nowrap; }
+.logo span { font-weight: 800; }
+.logo .e { color: var(--yellow-2); }
+
+.nav-links { list-style: none; display: flex; gap: 30px; flex: 1; padding-left: 12px; }
+.nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 14px; font-weight: 500; position: relative; padding: 4px 2px; transition: color 0.3s; white-space: nowrap; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 1.5px; background: var(--yellow-2); border-radius: 2px; transition: width 0.4s; }
+.nav-links a:hover::after { width: 100%; }
+
+.search { background: var(--bg-card); padding: 11px 20px; border-radius: 999px; display: flex; align-items: center; gap: 14px; min-width: 200px; max-width: 300px; flex: 0 1 300px; box-shadow: 0 12px 22px -10px rgba(0,0,0,0.08); }
+.search input { border: none; outline: none; background: transparent; font-family: inherit; font-size: 14px; color: var(--ink); flex: 1; min-width: 0; }
+.search input::placeholder { color: var(--mute); }
+.search svg { color: var(--mute); flex-shrink: 0; cursor: pointer; }
+
+.nav-right-mobile { display: none; gap: 10px; margin-left: auto; align-items: center; }
+.track-btn-mobile { background: var(--yellow-1); color: #000; border: none; padding: 10px 16px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap; }
+.menu-toggle { background: var(--bg-card); border: none; padding: 10px 12px; border-radius: 999px; cursor: pointer; color: var(--ink); font-weight: 700; }
+
+.mobile-menu { position: fixed; top: 0; right: 0; width: 100%; max-width: 360px; height: 100vh; background: #000; color: #fff; z-index: 200; padding: 80px 24px 30px; transform: translateX(100%); transition: transform 0.4s; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+.mobile-menu.open { transform: translateX(0); }
+.close-menu { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: #fff; cursor: pointer; padding: 8px 12px; border-radius: 50%; font-weight: 700; }
+.video-banner { width: 100%; height: 160px; border-radius: 16px; overflow: hidden; position: relative; background: #222; }
+.video-banner video { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+.video-banner-text { position: absolute; bottom: 10px; left: 16px; font-size: 14px; font-weight: 700; background: var(--yellow-1); color: #000; padding: 4px 10px; border-radius: 8px; }
+.sidebar-search { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 12px 16px; border-radius: 12px; display: flex; gap: 10px; cursor: pointer; }
+.sidebar-search input { background: transparent; border: none; outline: none; color: #fff; flex: 1; font-size: 15px; min-width: 0; }
+.sidebar-search svg { color: var(--yellow-1); flex-shrink: 0; }
+.mobile-menu nav { display: flex; flex-direction: column; margin-top: 10px; }
+.mobile-menu nav a { color: #fff; text-decoration: none; font-size: 22px; font-weight: 600; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+/* ============ OVERLAYS ============ */
+.overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.95); display: flex; align-items: flex-start; justify-content: center; padding: 80px 20px 40px; opacity: 0; pointer-events: none; transition: opacity 0.3s; overflow-y: auto; }
+.overlay.open { opacity: 1; pointer-events: auto; }
+.overlay-box { width: 100%; max-width: 650px; background: #111; padding: 40px; border-radius: 24px; border: 1px solid #222; position: relative; }
+.close-overlay { position: absolute; top: 20px; right: 20px; background: var(--yellow-1); color: #000; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: 800; }
+
+.tracking-search { display: flex; gap: 10px; margin: 30px 0; flex-wrap: wrap; }
+.tracking-search input { flex: 1; min-width: 200px; background: #000; border: 1px solid #333; color: #fff; padding: 14px 18px; border-radius: 12px; outline: none; font-size: 15px; }
+.tracking-search input:focus { border-color: var(--yellow-1); }
+.tracking-search button { background: var(--yellow-1); color: #000; border: none; padding: 0 24px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 15px; }
+.tracking-result { background: #000; border-radius: 16px; padding: 24px; border: 1px solid #222; display: none; }
+.tracking-result.show { display: block; }
+.status-track { display: flex; justify-content: space-between; position: relative; margin-top: 20px; }
+.status-track::before { content: ''; position: absolute; top: 12px; left: 0; right: 0; height: 2px; background: #333; z-index: 1; }
+.status-step { position: relative; z-index: 2; text-align: center; flex: 1; }
+.step-dot { width: 26px; height: 26px; background: #333; border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 12px; font-weight: 700; transition: all 0.3s; }
+.status-step.active .step-dot { background: var(--yellow-1); color: #000; box-shadow: 0 0 0 4px rgba(255,212,0,0.2); }
+.step-label { font-size: 12px; color: #666; font-weight: 600; }
+.status-step.active .step-label { color: #fff; }
+
+/* Franchise & Customer Fullscreen */
+.franchise-fullscreen, .customer-fullscreen { width: 100%; height: 100%; min-height: 100vh; max-width: none; background: #000; color: #fff; padding: 80px 5vw; border-radius: 0; overflow-y: auto; }
+.fs-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+.fs-header h2 { font-size: clamp(28px, 5vw, 56px); font-weight: 800; text-transform: uppercase; line-height: 1.1; }
+.fs-header h2 span { color: var(--yellow-1); }
+.fs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 60px; }
+.fs-card { background: #111; border: 1px solid #222; padding: 30px; border-radius: 20px; transition: border-color 0.3s; display: flex; flex-direction: column; }
+.fs-card:hover { border-color: var(--yellow-1); }
+.fs-card h4 { font-size: 24px; font-weight: 700; margin: 10px 0 8px; }
+.fs-card p { color: #aaa; margin-bottom: 20px; flex: 1; }
+.fs-status { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; text-transform: uppercase; width: max-content; }
+.fs-status.open { background: rgba(0, 255, 0, 0.1); color: #4ade80; }
+.fs-status.full { background: rgba(255, 0, 0, 0.1); color: #f87171; }
+.wa-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--yellow-1); color: #000; text-decoration: none; padding: 12px 24px; border-radius: 999px; font-weight: 700; margin-top: auto; width: max-content; }
+
+/* Customer Page Specifics */
+.cust-search-bar { margin-bottom: 40px; }
+.cust-search-bar input { width: 100%; background: #111; border: 1px solid #333; color: #fff; padding: 16px 20px; border-radius: 12px; outline: none; font-size: 16px; }
+.cust-search-bar input:focus { border-color: var(--yellow-1); }
+.cust-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; }
+.cust-card { background: #111; border-radius: 16px; overflow: hidden; border: 1px solid #222; transition: transform 0.3s; }
+.cust-card:hover { transform: translateY(-5px); border-color: var(--yellow-1); }
+.cust-shoe-img { width: 100%; height: 200px; background-size: cover; background-position: center; }
+.cust-info { padding: 20px; display: flex; align-items: center; gap: 12px; }
+.cust-avatar { width: 40px; height: 40px; border-radius: 50%; background-size: cover; background-position: center; flex-shrink: 0; }
+.cust-name { font-weight: 700; color: #fff; font-size: 15px; }
+.cust-service { font-size: 12px; color: var(--yellow-1); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+.no-results { color: #666; text-align: center; font-size: 18px; padding: 40px; grid-column: 1 / -1; }
+
+/* ============ HERO ============ */
+.hero { position: relative; min-height: 100vh; padding: 120px 5vw 60px; display: flex; flex-direction: column; z-index: 5; }
+.hero-top { position: relative; display: flex; justify-content: space-between; margin-top: 10px; flex-wrap: wrap; gap: 20px; }
+.bubble { background: var(--bg-card); padding: 14px 20px; border-radius: 18px; font-size: 14px; color: var(--ink-soft); box-shadow: 0 16px 26px -10px rgba(0,0,0,0.08); max-width: 100%; }
+.bubble.left { transform: rotate(-3deg); }
+.bubble.right { text-align: right; transform: rotate(3deg); }
+.bubble div:last-child { font-weight: 700; margin-top: 2px; color: var(--ink); }
+
+.hero-mid { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; margin: 20px 0; min-height: 300px; }
+.headline { font-weight: 800; font-size: clamp(48px, 14vw, 240px); letter-spacing: -0.05em; line-height: 0.9; text-align: center; width: 100%; white-space: nowrap; overflow: hidden; }
+.headline .letter { display: inline-block; }
+
+.card-stack { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 240px; height: 300px; z-index: 10; pointer-events: none; }
+.card-stack > * { pointer-events: auto; }
+.img-card { position: absolute; inset: 0; border-radius: 22px; overflow: hidden; box-shadow: 0 38px 60px -22px rgba(0,0,0,0.25); cursor: pointer; }
+.img-card.back { background: linear-gradient(135deg, #FFE082, #FFC107); transform: translate(-18px, 12px) rotate(-12deg); }
+.img-card.front { background: linear-gradient(135deg, #212121, #000000); transform: translate(18px, -12px) rotate(8deg); }
+.arrow-btn { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; background: var(--yellow-1); display: flex; align-items: center; justify-content: center; z-index: 3; font-weight: 800; }
+.capacity-label { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--yellow-1); color: #000; padding: 8px 22px; border-radius: 999px; font-size: 14px; font-weight: 700; z-index: 3; white-space: nowrap; }
+
+.hero-bot { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
+.meta-left { max-width: 400px; flex: 1; min-width: 280px; }
+.learn-more { color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; }
+.avatar-stack > * { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -10px; background-size: cover; }
+.avatar-stack > *:first-child { margin-left: 0; }
+.avatar-plus { background: var(--ink); color: var(--yellow-1); display: flex; align-items: center; justify-content: center; font-weight: 600; }
+
+/* ============ SERVICES HORIZONTAL ============ */
+.services-wrapper { height: 100vh; display: flex; align-items: center; background: #000; overflow: hidden; position: relative; }
+.services-title { position: absolute; top: 15vh; left: 5vw; z-index: 10; }
+.services-title h3 { font-size: clamp(28px, 5vw, 56px); font-weight: 800; color: #fff; }
+.services-title span { color: var(--yellow-1); }
+.services-track { display: flex; gap: 40px; padding-left: 5vw; will-change: transform; }
+.service-card { width: 80vw; max-width: 600px; height: 60vh; max-height: 450px; background: #111; border-radius: 24px; overflow: hidden; position: relative; flex-shrink: 0; box-shadow: 0 20px 40px rgba(0,0,0,0.5); display: flex; opacity: 0; transform: translateY(100px); }
+.service-img { width: 60%; height: 100%; background-size: cover; background-position: center; filter: grayscale(100%); transition: filter 0.4s; }
+.service-card:hover .service-img { filter: grayscale(0%); }
+.service-info { width: 40%; padding: 30px; color: #fff; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to right, transparent, #111 20%); }
+.service-info span { color: var(--yellow-1); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.service-info h4 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; line-height: 1.1; margin-bottom: 10px; }
+.service-info p { font-size: 14px; color: #aaa; line-height: 1.5; }
+
+/* ============ BRAND INFO ============ */
+.brand-info { padding: 100px 5vw; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1400px; margin: 0 auto; }
+.brand-text h2 { font-size: clamp(32px, 5vw, 64px); font-weight: 800; line-height: 1.05; margin-bottom: 24px; }
+.brand-text h2 span { background: var(--yellow-1); padding: 0 8px; display: inline-block; }
+.brand-text p { font-size: 16px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 20px; }
+.brand-visual { height: 400px; background: url('https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover; border-radius: 30px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.3); }
+
+/* ============ GALLERY ============ */
+.gallery { padding: 80px 5vw; background: #111; color: #fff; }
+.gallery-header { text-align: center; margin-bottom: 60px; }
+.gallery-header h3 { font-size: clamp(28px, 5vw, 56px); font-weight: 800; text-transform: uppercase; }
+.gallery-header span { color: var(--yellow-1); }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 16px; max-width: 1400px; margin: 0 auto; }
+.gallery-item { background-size: cover; background-position: center; border-radius: 16px; cursor: pointer; transition: transform 0.3s; position: relative; overflow: hidden; }
+.gallery-item:hover { transform: scale(1.02); }
+.gallery-item::after { content: 'View'; position: absolute; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; color: var(--yellow-1); font-weight: 700; opacity: 0; transition: opacity 0.3s; }
+.gallery-item:hover::after { opacity: 1; }
+.gi-1 { grid-column: span 2; grid-row: span 2; }
+.gi-2 { grid-column: span 2; }
+.gi-3 { grid-column: span 1; grid-row: span 2; }
+
+/* ============ FRANCHISE BANNER ============ */
+.franchise-banner { padding: 100px 5vw; background: #000; color: #fff; text-align: center; border-top: 1px solid #222; }
+.franchise-banner h2 { font-size: clamp(32px, 6vw, 80px); font-weight: 800; line-height: 1.05; margin-bottom: 30px; text-transform: uppercase; }
+.franchise-banner h2 span { color: var(--yellow-1); }
+.franchise-banner p { max-width: 800px; margin: 0 auto 40px; font-size: 16px; color: #aaa; line-height: 1.6; }
+.franchise-btn { background: var(--yellow-1); color: #000; border: none; padding: 18px 40px; border-radius: 999px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; transition: transform 0.3s; }
+.franchise-btn:hover { transform: scale(1.05); }
+
+/* ============ CUSTOMER VIP ============ */
+.customer-vip { padding: 100px 5vw; max-width: 1200px; margin: 0 auto; display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
+.vip-card { flex: 1; min-width: 300px; background: #111; color: #fff; padding: 40px; border-radius: 24px; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.vip-card::before { content: 'VIP'; position: absolute; top: -20px; right: -20px; font-size: 150px; font-weight: 800; color: rgba(255,212,0,0.1); }
+.vip-logo { font-size: 24px; font-weight: 800; margin-bottom: 20px; color: var(--yellow-1); }
+.vip-card h3 { font-size: 28px; margin-bottom: 20px; }
+.vip-perks { list-style: none; }
+.vip-perks li { padding: 12px 0; border-bottom: 1px solid #333; display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.vip-perks li::before { content: '✓'; color: var(--yellow-1); font-weight: 800; }
+.vip-info { flex: 1; min-width: 300px; }
+.vip-info h2 { font-size: clamp(28px, 4vw, 48px); margin-bottom: 20px; line-height: 1.1; }
+.vip-info p { color: var(--ink-soft); font-size: 16px; line-height: 1.6; margin-bottom: 30px; }
+.vip-cta { background: #000; color: #fff; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none; font-size: 16px; }
+.vip-cta:hover { background: var(--yellow-1); color: #000; }
+
+/* ============ TESTIMONIALS ============ */
+.testimonials { padding: 100px 5vw; background: #f4f4f4; }
+.testi-header { text-align: center; margin-bottom: 60px; }
+.testi-header h3 { font-size: clamp(28px, 5vw, 56px); font-weight: 800; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.testi-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); }
+.testi-stars { color: var(--yellow-1); margin-bottom: 15px; font-size: 18px; }
+.testi-text { font-size: 15px; line-height: 1.6; margin-bottom: 20px; color: #333; }
+.testi-profile { display: flex; align-items: center; gap: 12px; }
+.testi-avatar { width: 40px; height: 40px; border-radius: 50%; background-size: cover; }
+.testi-name { font-weight: 700; font-size: 14px; }
+.testi-role { font-size: 12px; color: #777; }
+
+/* ============ FOOTER ============ */
+.footer { background: #000; color: #fff; padding: 80px 5vw 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto 60px; }
+.footer-brand h3 { font-size: 32px; font-weight: 800; margin-bottom: 20px; }
+.footer-brand h3 span { color: var(--yellow-1); }
+.footer-brand p { color: #777; line-height: 1.6; max-width: 300px; font-size: 14px; }
+.footer-col h4 { font-size: 14px; text-transform: uppercase; margin-bottom: 20px; color: #aaa; }
+.footer-col a { display: block; color: #fff; text-decoration: none; padding: 8px 0; transition: color 0.3s; font-size: 14px; cursor: pointer; }
+.footer-col a:hover { color: var(--yellow-1); }
+.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid #222; display: flex; justify-content: space-between; align-items: center; color: #555; font-size: 13px; flex-wrap: wrap; gap: 10px; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .brand-info, .customer-vip { flex-direction: column; align-items: flex-start; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gi-1, .gi-2, .gi-3 { grid-column: span 1; grid-row: span 1; }
+  .gi-1 { grid-column: span 2; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .service-card { width: 85vw; }
+}
+@media (max-width: 768px) {
+  .nav-links, .search { display: none; }
+  .nav-right-mobile { display: flex; }
+  .hero { padding-top: 100px; }
+  .hero-top { justify-content: center; }
+  .bubble.right { text-align: left; transform: rotate(3deg); }
+  .service-card { flex-direction: column; width: 90vw; height: 70vh; }
+  .service-img { width: 100%; height: 50%; }
+  .service-info { width: 100%; height: 50%; padding: 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="logo">sols<span class="e">k</span>a</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#brand">Brand</a></li>
+    <li><a href="#" id="franchiseNav">Franchise</a></li>
+    <li><a href="layanan.html">layanan</a></li>
+  </ul>
+  <div class="search">
+    <input type="text" id="desktopTrackInput" placeholder="Track Order ID (SLSK-...)..." />
+    <svg id="desktopTrackIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+  </div>
+  <div class="nav-right-mobile">
+    <button class="track-btn-mobile" id="openTrackMobile">Track</button>
+    <button class="menu-toggle" id="menuToggle">Menu</button>
+  </div>
+</nav>
+
+<!-- SIDEBAR MOBILE -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" id="closeMenu">X</button>
+  <div class="video-banner">
+    <video autoplay muted loop playsinline><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></video>
+    <div class="video-banner-text">PROMO HARI INI</div>
+  </div>
+  <div class="sidebar-search" id="sidebarTrackBtn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <input type="text" placeholder="Tracking sepatu lo..." id="sidebarTrackInput" />
+  </div>
+  <nav>
+    <a href="layanan.html">Layanan</a>
+    <a href="#brand">Brand Info</a>
+    <a href="#" id="franchiseNavMobile">Franchise</a>
+    <a href="#vip">VIP Member</a>
+    <a href="#testi">Testimoni</a>
+  </nav>
+</div>
+
+<!-- TRACKING OVERLAY -->
+<div class="overlay" id="trackingOverlay">
+  <div class="overlay-box">
+    <button class="close-overlay" id="closeTracking">X</button>
+    <div style="color: #fff;">
+      <h2 style="font-size: 28px; margin-bottom: 10px;">Lacak Sepatumu</h2>
+      <p style="color: #aaa;">Mau tau sepatu lo udah sampai mana? Cek di sini.</p>
+    </div>
+    <div class="tracking-search">
+      <input type="text" placeholder="Cth: SLSK-8821" id="trackInput" />
+      <button id="searchTrackBtn">Lacak</button>
+    </div>
+    <div class="tracking-result" id="trackResult">
+      <div style="color: #aaa; font-size: 14px;">Order ID: <span id="resOrderId" style="color:#fff">SLSK-8821</span></div>
+      <div style="color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 20px;">Nike Air Jordan 1 Retro High</div>
+      <div class="status-track">
+        <div class="status-step active" id="step1"><div class="step-dot">1</div><div class="step-label">Waiting</div></div>
+        <div class="status-step" id="step2"><div class="step-dot">2</div><div class="step-label">Process</div></div>
+        <div class="status-step" id="step3"><div class="step-dot">3</div><div class="step-label">Selesai</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FRANCHISE FULLSCREEN OVERLAY -->
+<div class="overlay" id="franchiseOverlay" style="padding: 0;">
+  <div class="franchise-fullscreen">
+    <div class="fs-header">
+      <h2>Buktikan Lo <span>Bisa</span></h2>
+      <button class="close-overlay" id="closeFranchise" style="position: relative; top:0; right:0;">X</button>
+    </div>
+    <p style="color: #aaa; max-width: 600px; margin-bottom: 40px;">Sebelum lo applying, liat dulu cabang mana yang masih buuka slot. Tapi ingat, slot ini bukan buat pengecut.</p>
+    <div class="fs-grid">
+      <div class="fs-card">
+        <span class="fs-status open">Slot Terbuka</span>
+        <h4>Jakarta Selatan</h4>
+        <p>Cipete Area - High End Market</p>
+        <a href="https://wa.me/6281234567890?text=Admin%20Solska%20Jaksel" target="_blank" class="wa-btn">Gas WhatsApp</a>
+      </div>
+      <div class="fs-card">
+        <span class="fs-status open">Slot Terbuka</span>
+        <h4>Bandung</h4>
+        <p>Dago Area - Mahasiswa & Sneakerhead</p>
+        <a href="https://wa.me/6281234567890?text=Admin%20Solska%20Bandung" target="_blank" class="wa-btn">Gas WhatsApp</a>
+      </div>
+      <div class="fs-card">
+        <span class="fs-status full">Slot Penuh</span>
+        <h4>Surabaya</h4>
+        <p>Tunjungan Area - Wait List 6 Bulan</p>
+        <a href="https://wa.me/6281234567890?text=Waitlist%20Solska%20Surabaya" target="_blank" class="wa-btn" style="background:#333; color:#fff;">Waitlist</a>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #222; padding-top: 30px;">
+      <h4 style="font-size: 20px; color: #fff; margin-bottom: 20px;">Syarat Gila:</h4>
+      <ul style="color: #aaa; line-height: 2; max-width: 600px; padding-left: 20px;">
+        <li>Modal gak boleh setengah-setengah. Lo harus serius.</li>
+        <li>Lokasi harus strategis, gak boleh di kubangan.</li>
+        <li>Staff harus dilatih langsung sama tim dewa Solska.</li>
+        <li>Wajib pakai sabun & formula ramah lingkungan dari pusat.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOMER PAGE FULLSCREEN OVERLAY -->
+<div class="overlay" id="customerOverlay" style="padding: 0;">
+  <div class="customer-fullscreen">
+    <div class="fs-header">
+      <h2>Wall of <span>Fame</span></h2>
+      <button class="close-overlay" id="closeCustomer" style="position: relative; top:0; right:0;">X</button>
+    </div>
+    <p style="color: #aaa; max-width: 600px; margin-bottom: 30px;">Ini daftar customer yang udah buktiin sepatunya layak di-save sama Solska. Cuma yang turun tangan langsung yang masuk sini.</p>
+    
+    <div class="cust-search-bar">
+      <input type="text" id="customerSearchInput" placeholder="Cari nama customer..." />
+    </div>
+
+    <div class="cust-grid" id="customerGrid">
+      <div class="cust-card">
+        <div class="cust-shoe-img" style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cust-info">
+          <div class="cust-avatar" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop')"></div>
+          <div>
+            <div class="cust-name">Reza Pratama</div>
+            <div class="cust-service">Deep Clean - Jordan 1</div>
+          </div>
+        </div>
+      </div>
+      <div class="cust-card">
+        <div class="cust-shoe-img" style="background-image: url('https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cust-info">
+          <div class="cust-avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop')"></div>
+          <div>
+            <div class="cust-name">Sarah Wijaya</div>
+            <div class="cust-service">Unyellowing - Yeezy</div>
+          </div>
+        </div>
+      </div>
+      <div class="cust-card">
+        <div class="cust-shoe-img" style="background-image: url('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cust-info">
+          <div class="cust-avatar" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop')"></div>
+          <div>
+            <div class="cust-name">Dimas Anggara</div>
+            <div class="cust-service">Sole Repaint - AF 1</div>
+          </div>
+        </div>
+      </div>
+      <div class="cust-card">
+        <div class="cust-shoe-img" style="background-image: url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cust-info">
+          <div class="cust-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop')"></div>
+          <div>
+            <div class="cust-name">Citra Kirana</div>
+            <div class="cust-service">Custom Paint - Vans</div>
+          </div>
+        </div>
+      </div>
+       <div class="cust-card">
+        <div class="cust-shoe-img" style="background-image: url('https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cust-info">
+          <div class="cust-avatar" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&h=80&fit=crop')"></div>
+          <div>
+            <div class="cust-name">Budi Santoso</div>
+            <div class="cust-service">Deep Clean - Adidas</div>
+          </div>
+        </div>
+      </div>
+      <div class="no-results" style="display: none;">Customer gak ketemu. Cuma nama dewa yang masuk sini.</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <div class="bubble left"><div>Worn out sneakers?</div><div>We've got you covered.</div></div>
+    <div class="bubble right"><div>Premium shoe care</div><div>Book now today.</div></div>
+  </div>
+  <div class="hero-mid">
+    <h1 class="headline" id="headline"><span class="letter">S</span><span class="letter">N</span><span class="letter">E</span><span class="letter">A</span><span class="letter">K</span><span class="letter">E</span><span class="letter">R</span><span class="letter">S</span></h1>
+    <div class="card-stack" id="cardStack">
+      <div class="img-card back" id="cardBack"></div>
+      <div class="img-card front" id="cardFront">
+        <div class="arrow-btn">↗</div>
+        <div class="capacity-label">Deep Clean</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bot">
+    <div class="meta-left">
+      <a href="#services" class="learn-more">↗ View Services</a>
+      <p>Solska is a premium shoe cleaning service that restores your favorite sneakers to their original glory using eco-friendly techniques.</p>
+    </div>
+    <div class="meta-right">
+      <div style="font-size: 13px; color: #777; margin-bottom: 12px;">Loved by 5000+ customers</div>
+      <div class="avatar-stack">
+        <div style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces')"></div>
+        <div style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=faces')"></div>
+        <div style="background: var(--ink); color: var(--yellow-1); display: flex; align-items: center; justify-content: center;">+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES HORIZONTAL -->
+<section class="services-wrapper" id="services">
+  <div class="services-title"><h3>Our <span>Services</span></h3></div>
+  <div class="services-track" id="servicesTrack">
+    <div class="service-card">
+      <div class="service-img" style="background: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover;"></div>
+      <div class="service-info">
+        <span>Rp 50.000</span>
+        <h4>Deep Clean</h4>
+        <p>Bersihin noda bandel sampai ke akar. Buat lo yang sepatunya udah kayak tempat sampah.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-img" style="background: url('https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover;"></div>
+      <div class="service-info">
+        <span>Rp 120.000</span>
+        <h4>Unyellowing</h4>
+        <p>Bikin sol sepatu lo balik putih kayak baru beli. Bukan sekadar ngelap, tapi nge-reset.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-img" style="background: url('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover;"></div>
+      <div class="service-info">
+        <span>Rp 350.000</span>
+        <h4>Sole Repaint</h4>
+        <p>Sol lo lecet dan mekpek? Kita cat ulang presisi biar kelihatan kayak ori pabrik.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-img" style="background: url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover;"></div>
+      <div class="service-info">
+        <span>Custom Price</span>
+        <h4>Custom Paint</h4>
+        <p>Bosen sama warna pabrik? Kita ubah jadi karya seni. Tapi ya, tergantung seberapa gila ide lo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND INFO -->
+<section class="brand-info" id="brand">
+  <div class="brand-text">
+    <h2>Bukan Cuci Sepatu, <span>In</span>i Revolusi.</h2>
+    <p>Gua tau lo mikir cuci sepatu cuma sabun + air. Lo salah besar. Solska lahir dari kekesalan lihat sneakers Limited Edition rusak gara-gara treatment abal-abal.</p>
+    <p>Kita pakai formula yang ramah lingkungan, teknologi ultrasonic, dan standar quality control yang gak boleh turun 0.1%.</p>
+  </div>
+  <div class="brand-visual"></div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-header">
+    <h3>Hasil <span>Kerja Keras</span></h3>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item gi-1" style="background-image: url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+    <div class="gallery-item gi-2" style="background-image: url('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+    <div class="gallery-item gi-3" style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+    <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+    <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+  </div>
+</section>
+
+<!-- FRANCHISE BANNER -->
+<section class="franchise-banner">
+  <h2>Apapun Lo, <br>Belum Tentu Bisa <span>Franchise</span> Bisnis Gua.</h2>
+  <p>Sombong? Bisa. Nyata? Iya. Bisnis cuci sepatu ini punya standar gila. Kalau mental lo gak kuat atau cuma nyari untung instan, mending urungkan niat. Tapi kalau lo siap bawa Solska ke level dewa, gas kita urus.</p>
+  <button class="franchise-btn" id="openFranchiseBtn">Lihat Slot Franchise</button>
+</section>
+
+<!-- CUSTOMER VIP -->
+<section class="customer-vip" id="vip">
+  <div class="vip-card">
+    <div class="vip-logo">SOLSKA VIP</div>
+    <h3>Member Premium</h3>
+    <ul class="vip-perks">
+      <li>Gratis ongkir pick-up & delivery se-Jabodetabek</li>
+      <li>Prioritas antrian (diutamain dari yang biasa)</li>
+      <li>Diskon 20% buat Unyellowing & Repaint</li>
+      <li>Free quarterly deep clean 1x</li>
+    </ul>
+  </div>
+  <div class="vip-info">
+    <h2>Kalo Lo Serius Soal Sepatu, Lo Wajib Masuk Sini.</h2>
+    <p>Kita gak butuh member yang cuma daftar buat pamer. VIP Solska eksklusif buat lo yang sepatunya banyak dan sayang banget sama koleksi lo. Tahunan, bayar sekali, tenang setahun.</p>
+    <button class="vip-cta" id="openCustomerBtn">Lihat Customer Lain ↗</button>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testi">
+  <div class="testi-header">
+    <h3>Kata Mereka Yang <span>Sudah Percaya</span></h3>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Air Jordan gua yang solnya udah kuning banget, balik putih lagi kayak baru beli. Solska emang gak main-main. Worth every rupiah."</p>
+      <div class="testi-profile">
+        <div class="testi-avatar" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop')"></div>
+        <div><div class="testi-name">Reza Pratama</div><div class="testi-role">Sneakerhead</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Pelayanannya sombong sih, tapi hasilnya bikin gw mutusin balik lagi. Sepatu kerja gw yang lecet balik mulus. Tingkat dewa."</p>
+      <div class="testi-profile">
+        <div class="testi-avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop')"></div>
+        <div><div class="testi-name">Sarah Wijaya</div><div class="testi-role">Corporate Banker</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Dari pada beli sepatu baru mending cuci di Solska. VIP member banget, diambil sendiri ke rumah, bersih, balik. Gak ribet."</p>
+      <div class="testi-profile">
+        <div class="testi-avatar" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop')"></div>
+        <div><div class="testi-name">Dimas Anggara</div><div class="testi-role">Entrepreneur</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>SOLS<span>K</span>A</h3>
+      <p>Premium shoe care service. Kita bukan bisnis cuci sepatu abal-abal. Standar kami dewa, hasilnya Dewa.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#services">Services</a>
+      <a href="#brand">Brand Info</a>
+      <a id="franchiseNavFooter">Franchise</a>
+      <a id="customerNavFooter">Hall of Fame</a>
+    </div>
+    <div class="footer-col">
+      <h4>Customer Service</h4>
+      <a href="https://wa.me/6281234567890" target="_blank">WhatsApp Admin</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Email</a>
+    </div>
+    <div class="footer-col">
+      <h4>Location</h4>
+      <a>Jakarta Selatan</a>
+      <a>Bandung</a>
+      <a>Surabaya (Waitlist)</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Solska Premium Shoe Care. All Rights Reserved.</p>
+    <p>Made with grit & coffee.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// ============================================================
+// OVERLAY LOGIC
+// ============================================================
+const openTracking = (value = '') => {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('trackingOverlay').classList.add('open');
+  const input = document.getElementById('trackInput');
+  if(value) input.value = value;
+  setTimeout(() => input.focus(), 300);
+};
+
+const openFranchise = () => {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('franchiseOverlay').classList.add('open');
+};
+
+const openCustomer = () => {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('customerOverlay').classList.add('open');
+};
+
+document.getElementById('openFranchiseBtn').addEventListener('click', openFranchise);
+document.getElementById('openCustomerBtn').addEventListener('click', openCustomer);
+
+document.querySelectorAll('#franchiseNav, #franchiseNavMobile, #franchiseNavFooter').forEach(el => {
+  el.addEventListener('click', (e) => { e.preventDefault(); openFranchise(); });
+});
+document.querySelectorAll('#customerNavFooter').forEach(el => {
+  el.addEventListener('click', (e) => { e.preventDefault(); openCustomer(); });
+});
+
+document.getElementById('closeFranchise').addEventListener('click', () => document.getElementById('franchiseOverlay').classList.remove('open'));
+document.getElementById('closeCustomer').addEventListener('click', () => document.getElementById('customerOverlay').classList.remove('open'));
+
+document.getElementById('desktopTrackInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') openTracking(e.target.value); });
+document.getElementById('desktopTrackIcon').addEventListener('click', () => openTracking(document.getElementById('desktopTrackInput').value));
+document.getElementById('openTrackMobile').addEventListener('click', () => openTracking());
+document.getElementById('sidebarTrackBtn').addEventListener('click', () => openTracking(document.getElementById('sidebarTrackInput').value));
+document.getElementById('closeTracking').addEventListener('click', () => document.getElementById('trackingOverlay').classList.remove('open'));
+
+document.getElementById('searchTrackBtn').addEventListener('click', () => {
+  const val = document.getElementById('trackInput').value.trim();
+  if(val.length > 3) {
+    document.getElementById('resOrderId').textContent = val.toUpperCase();
+    document.getElementById('trackResult').classList.add('show');
+    const randomActive = Math.floor(Math.random() * 3) + 1;
+    ['step1', 'step2', 'step3'].forEach((step, index) => {
+      document.getElementById(step).classList.toggle('active', index < randomActive);
+    });
+  }
+});
+
+document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('closeMenu').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+
+// Customer Search Logic
+const searchInput = document.getElementById('customerSearchInput');
+searchInput.addEventListener('keyup', (e) => {
+  const filter = e.target.value.toLowerCase();
+  const cards = document.querySelectorAll('.cust-card');
+  let found = false;
+  cards.forEach(card => {
+    const name = card.querySelector('.cust-name').innerText.toLowerCase();
+    if(name.includes(filter)) {
+      card.style.display = 'block';
+      found = true;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.querySelector('.no-results').style.display = found ? 'none' : 'block';
+});
+
+// ============================================================
+// HERO ANIMATIONS
+// ============================================================
+gsap.set("#nav", { opacity: 0, y: -20 });
+gsap.set(".headline .letter", { opacity: 0, y: 80 });
+gsap.set("#cardBack", { opacity: 0, scale: 0.5, rotation: -40 });
+gsap.set("#cardFront", { opacity: 0, scale: 0.5, rotation: 35 });
+
+gsap.timeline({ defaults: { ease: "power3.out" } })
+  .to("#nav", { opacity: 1, y: 0, duration: 0.8 }, 0.1)
+  .to(".headline .letter", { opacity: 1, y: 0, duration: 0.9, stagger: 0.05 }, 0.45)
+  .to("#cardBack", { opacity: 1, scale: 1, rotation: -12, duration: 1.1, ease: "back.out(1.6)" }, 0.9)
+  .to("#cardFront", { opacity: 1, scale: 1, rotation: 8, duration: 1.1, ease: "back.out(1.6)" }, 1.0);
+
+gsap.to("#cardBack", { y: "+=8", rotation: "-=1.5", duration: 4, delay: 2.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
+gsap.to("#cardFront", { y: "+=10", rotation: "+=1.5", duration: 3.6, delay: 2.7, ease: "sine.inOut", yoyo: true, repeat: -1 });
+
+// ============================================================
+// SERVICES HORIZONTAL SCROLL (1 SCROLL 1 CARD)
+// ============================================================
+const servicesTrack = document.getElementById('servicesTrack');
+const cards = document.querySelectorAll('.service-card');
+
+gsap.to(servicesTrack, {
+  x: () => -(servicesTrack.scrollWidth - window.innerWidth + (window.innerWidth * 0.05)) + "px",
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#services",
+    start: "top top",
+    end: () => `+=${servicesTrack.scrollWidth * 1.5}`,
+    pin: true,
+    scrub: 1,
+    snap: {
+      snapTo: 1 / (cards.length - 1), 
+      duration: 0.5,
+      ease: "power1.inOut"
+    },
+    invalidateOnRefresh: true
+  }
+});
+
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      anime({
+        targets: entry.target,
+        opacity: [0, 1],
+        translateY: [100, 0],
+        duration: 800,
+        easing: 'easeOutCubic'
+      });
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+cards.forEach(card => cardObserver.observe(card));
+
+// ============================================================
+// GENERAL SCROLL REVEALS
+// ============================================================
+gsap.from(".brand-text h2, .brand-text p", { opacity: 0, y: 50, duration: 1, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: ".brand-info", start: "top 70%" } });
+gsap.from(".brand-visual", { opacity: 0, scale: 0.8, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: ".brand-info", start: "top 70%" } });
+gsap.from(".gallery-item", { opacity: 0, scale: 0.8, duration: 0.8, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: ".gallery", start: "top 80%" } });
+gsap.from(".franchise-banner h2, .franchise-banner p, .franchise-btn", { opacity: 0, y: 50, duration: 1, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: ".franchise-banner", start: "top 70%" } });
+gsap.from(".vip-card", { opacity: 0, x: -50, duration: 1, ease: "power3.out", scrollTrigger: { trigger: ".customer-vip", start: "top 75%" } });
+gsap.from(".vip-info", { opacity: 0, x: 50, duration: 1, ease: "power3.out", scrollTrigger: { trigger: ".customer-vip", start: "top 75%" } });
+gsap.from(".testi-card", { opacity: 0, y: 60, duration: 0.8, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: ".testimonials", start: "top 80%" } });
+gsap.from(".footer-col, .footer-brand", { opacity: 0, y: 30, duration: 0.8, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: ".footer", start: "top 90%" } });
+</script>
+</body>
+</html>
