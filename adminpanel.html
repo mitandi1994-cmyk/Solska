@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+
+    <!-- =========================
+         BASIC META
+    ========================== -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SOLSKA Admin Panel & Command Center</title>
+
+    <meta name="description"
+          content="SOLSKA Admin Panel & Command Center — pusat administrasi, pengelolaan data, operasional, dan manajemen platform SOLSKA.">
+
+    <meta name="author"
+          content="SOLSKA">
+
+    <meta name="publisher"
+          content="SOLSKA">
+
+    <meta name="language"
+          content="id">
+
+    <!-- =========================
+         SECURITY / SEARCH
+         ADMIN JANGAN DIINDEX
+    ========================== -->
+    <meta name="robots"
+          content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+
+    <meta name="googlebot"
+          content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+
+    <meta name="bingbot"
+          content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+
+    <!-- =========================
+         CANONICAL
+    ========================== -->
+    <link rel="canonical"
+          href="https://solska.id/admin.html">
+
+    <!-- =========================
+         FAVICON
+    ========================== -->
+    <link rel="icon"
+          type="image/png"
+          href="/favicon.png">
+
+    <link rel="shortcut icon"
+          type="image/png"
+          href="/favicon.png">
+
+    <link rel="apple-touch-icon"
+          href="/favicon.png">
+
+    <!-- =========================
+         THEME / MOBILE
+    ========================== -->
+    <meta name="theme-color"
+          content="#0A0A0A">
+
+    <meta name="color-scheme"
+          content="dark">
+
+    <meta name="mobile-web-app-capable"
+          content="yes">
+
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black">
+
+    <meta name="apple-mobile-web-app-title"
+          content="SOLSKA Admin">
+
+    <!-- =========================
+         REFERRER POLICY
+    ========================== -->
+    <meta name="referrer"
+          content="strict-origin-when-cross-origin">
+
+    <!-- =========================
+         PERFORMANCE
+    ========================== -->
+    <link rel="preconnect"
+          href="https://cdn.tailwindcss.com">
+
+    <link rel="preconnect"
+          href="https://cdnjs.cloudflare.com">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link rel="preconnect"
+          href="https://www.gstatic.com">
+
+    <!-- =========================
+         TAILWIND CSS
+    ========================== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- =========================
+         FONT AWESOME
+    ========================== -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- =========================
+         GOOGLE FONTS
+    ========================== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- =========================
+         FIREBASE SDK COMPAT
+    ========================== -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
+    <!-- =========================
+         TAILWIND CONFIG
+    ========================== -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+
+                    colors: {
+                        solska: {
+                            yellow: '#FFEA00',
+                            dark: '#0A0A0A',
+                            card: '#141414',
+                            border: '#262626'
+                        }
+                    },
+
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+
+                }
+            }
+        }
+    </script>
+
+    <!-- =========================
+         ADMIN APPLICATION SCHEMA
+         BUKAN SEO PUBLIC
+    ========================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SOLSKA Admin Panel & Command Center",
+        "url": "https://solska.id/admin.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Internal administration and command center for SOLSKA.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "SOLSKA",
+            "url": "https://solska.id/"
+        }
+    }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased h-screen overflow-hidden flex selection:bg-solska-yellow selection:text-black">
+
+    <!-- ========================================== -->
+    <!-- 1. LOGIN SCREEN -->
+    <!-- ========================================== -->
+    <div id="login-screen" class="fixed inset-0 bg-black z-50 flex items-center justify-center p-4">
+        <div class="bg-solska-card border border-solska-border rounded-3xl p-8 w-full max-w-md shadow-2xl">
+            <div class="flex flex-col items-center mb-8">
+                <div class="w-12 h-12 bg-solska-yellow rounded-full flex items-center justify-center text-black font-black text-xl mb-4">S</div>
+                <h1 class="text-2xl font-black uppercase tracking-tight">Solska Central Command</h1>
+                <p class="text-gray-500 text-xs mt-2 text-center">Akses terbatas. Khusus internal dewan direksi Solska.</p>
+            </div>
+            
+            <form id="login-form" onsubmit="handleLogin(event)" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Email Staff</label>
+                    <input type="email" id="login-email" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-solska-yellow transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Password Vault</label>
+                    <input type="password" id="login-pass" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-solska-yellow transition">
+                </div>
+                <p id="login-error" class="text-red-500 text-xs hidden"></p>
+                <button type="submit" id="btn-login" class="w-full bg-solska-yellow text-black font-black text-sm uppercase tracking-wider py-4 rounded-xl hover:bg-white transition mt-4">
+                    Authenticate
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 2. MAIN APP LAYOUT (Sidebar + Content) -->
+    <!-- ========================================== -->
+    <div id="app-layout" class="hidden flex w-full h-full">
+        
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="bg-solska-dark border-r border-solska-border w-64 h-full flex flex-col absolute md:relative z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300">
+            <div class="p-6 border-b border-solska-border flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-solska-yellow rounded-full flex items-center justify-center text-black font-black text-[10px]">S</div>
+                    <span class="font-black text-sm tracking-tighter uppercase">Admin Panel</span>
+                </div>
+                <button onclick="toggleSidebar()" class="md:hidden text-gray-500 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Profile Widget di Sidebar -->
+            <div class="p-4 border-b border-solska-border flex items-center gap-3 cursor-pointer hover:bg-solska-card transition" onclick="navTo('view-profile')">
+                <img id="sidebar-avatar" src="https://via.placeholder.com/150" class="w-10 h-10 rounded-full object-cover border border-solska-yellow" alt="Avatar">
+                <div class="overflow-hidden">
+                    <h4 id="sidebar-name" class="text-xs font-bold text-white truncate">Admin Solska</h4>
+                    <p class="text-[10px] text-solska-yellow">Online Command</p>
+                </div>
+            </div>
+
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <button onclick="navTo('view-dashboard', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-black bg-solska-yellow flex items-center gap-3 transition">
+                    <i class="fa-solid fa-chart-pie w-5"></i> Dashboard
+                </button>
+                <button onclick="navTo('view-layanan', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition">
+                    <i class="fa-solid fa-box-open w-5"></i> Layanan & Status
+                </button>
+                <button onclick="navTo('view-artikel', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition">
+                    <i class="fa-solid fa-newspaper w-5"></i> Artikel
+                </button>
+                <button onclick="navTo('view-profile', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition">
+                    <i class="fa-solid fa-user-gear w-5"></i> Profil Akun
+                </button>
+            </nav>
+
+            <div class="p-4 border-t border-solska-border">
+                <button onclick="handleLogout()" class="w-full bg-solska-card border border-solska-border text-gray-400 font-bold text-xs uppercase py-3 rounded-xl hover:text-red-400 hover:border-red-500 transition">
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 h-full bg-black overflow-y-auto relative flex flex-col">
+            <!-- Mobile Topbar -->
+            <div class="md:hidden flex items-center justify-between p-4 border-b border-solska-border bg-black/80 backdrop-blur sticky top-0 z-30">
+                <span class="font-black text-sm tracking-tighter uppercase text-white">Solska Admin</span>
+                <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center bg-solska-card border border-solska-border rounded-md text-white"><i class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <div class="p-4 md:p-8 flex-1">
+                
+                <!-- VIEW: DASHBOARD -->
+                <div id="view-dashboard" class="admin-view block">
+                    <h2 class="text-2xl font-black uppercase text-white mb-6">Analitik Pengunjung Website</h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        <div class="bg-solska-card border border-solska-border p-5 rounded-2xl">
+                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Total Kunjungan Unik (UID)</p>
+                            <p id="stat-visitors" class="text-3xl font-black text-white">0</p>
+                            <p class="text-[10px] text-green-400 mt-2"><i class="fa-solid fa-shield-halved"></i> Realtime Firestore Log</p>
+                        </div>
+                        <div class="bg-solska-card border border-solska-border p-5 rounded-2xl">
+                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Pesanan Aktif (Proses)</p>
+                            <p id="stat-active-orders" class="text-3xl font-black text-solska-yellow">0</p>
+                        </div>
+                        <div class="bg-solska-card border border-solska-border p-5 rounded-2xl">
+                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Pesanan Selesai</p>
+                            <p id="stat-done-orders" class="text-3xl font-black text-white">0</p>
+                        </div>
+                        <div class="bg-solska-card border border-solska-border p-5 rounded-2xl">
+                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Total Artikel</p>
+                            <p id="stat-articles" class="text-3xl font-black text-white">0</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-solska-card border border-solska-border rounded-2xl p-6">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-solska-yellow mb-4">Log Pengunjung Masuk Terbaru</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs text-gray-300">
+                                <thead class="border-b border-solska-border text-gray-500 uppercase">
+                                    <tr>
+                                        <th class="pb-3">Visitor UID</th>
+                                        <th class="pb-3">Waktu Akses</th>
+                                        <th class="pb-3">Platform / Device</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="visitor-table-body">
+                                    <tr><td colspan="3" class="py-4 text-center text-gray-600">Memuat data pengunjung...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW: LAYANAN & STATUS -->
+                <div id="view-layanan" class="admin-view hidden">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+                        <h2 class="text-2xl font-black uppercase text-white">Manajemen Layanan</h2>
+                        <button onclick="document.getElementById('modal-new-order').classList.remove('hidden')" class="bg-solska-yellow text-black font-black text-xs uppercase px-5 py-2.5 rounded-lg hover:bg-white transition flex items-center justify-center gap-2 w-full md:w-auto">
+                            <i class="fa-solid fa-plus"></i> Buat Orderan Baru
+                        </button>
+                    </div>
+
+                    <div class="bg-solska-card border border-solska-border p-4 rounded-2xl mb-6">
+                        <div class="relative w-full mb-4">
+                            <input type="text" id="search-order" onkeyup="filterOrders()" placeholder="Cari ID atau Nama Pemilik..." class="w-full bg-black border border-solska-border rounded-xl px-4 py-3 pl-10 text-sm text-white focus:outline-none focus:border-solska-yellow">
+                            <i class="fa-solid fa-search absolute left-4 top-3.5 text-gray-500"></i>
+                        </div>
+                        
+                        <div class="flex overflow-x-auto hide-scrollbar gap-2 pb-2">
+                            <button onclick="setOrderFilter('Semua', this)" class="order-filter-btn shrink-0 bg-solska-yellow text-black font-bold text-xs px-4 py-2 rounded-full border border-solska-yellow transition">Semua</button>
+                            <button onclick="setOrderFilter('Waiting', this)" class="order-filter-btn shrink-0 bg-black text-gray-400 font-bold text-xs px-4 py-2 rounded-full border border-solska-border hover:border-gray-500 transition">Waiting</button>
+                            <button onclick="setOrderFilter('Proses', this)" class="order-filter-btn shrink-0 bg-black text-gray-400 font-bold text-xs px-4 py-2 rounded-full border border-solska-border hover:border-solska-yellow hover:text-solska-yellow transition">Proses</button>
+                            <button onclick="setOrderFilter('Selesai', this)" class="order-filter-btn shrink-0 bg-black text-gray-400 font-bold text-xs px-4 py-2 rounded-full border border-solska-border hover:border-green-400 hover:text-green-400 transition">Selesai</button>
+                        </div>
+                    </div>
+
+                    <div id="order-list-container" class="space-y-4">
+                        <div class="text-center text-gray-500 py-10"><i class="fa-solid fa-spinner animate-spin"></i> Memuat Data...</div>
+                    </div>
+                </div>
+
+                <!-- VIEW: ARTIKEL -->
+                <div id="view-artikel" class="admin-view hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-black uppercase text-white">Kelola Artikel</h2>
+                        <button onclick="navTo('view-buat-artikel')" class="bg-solska-yellow text-black font-black w-10 h-10 rounded-xl hover:bg-white transition flex items-center justify-center" title="Buat Artikel">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex overflow-x-auto hide-scrollbar gap-2 pb-4 mb-6">
+                        <button onclick="filterArticleCat('Semua', this)" class="art-cat-btn shrink-0 bg-solska-yellow text-black font-bold text-xs px-4 py-2 rounded-full transition">Semua</button>
+                        <button onclick="filterArticleCat('Mitos & Fakta', this)" class="art-cat-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition">Mitos & Fakta</button>
+                        <button onclick="filterArticleCat('Teknologi Solska', this)" class="art-cat-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition">Teknologi Solska</button>
+                        <button onclick="filterArticleCat('Bisnis & Kemitraan', this)" class="art-cat-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition">Bisnis & Kemitraan</button>
+                        <button onclick="filterArticleCat('Tips & Trik', this)" class="art-cat-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition">Tips & Trik</button>
+                    </div>
+
+                    <div class="relative w-full mb-6">
+                        <input type="text" id="search-article" onkeyup="searchArticles()" placeholder="Cari judul artikel..." class="w-full bg-solska-card border border-solska-border rounded-xl px-4 py-3 pl-10 text-sm text-white focus:outline-none focus:border-solska-yellow">
+                        <i class="fa-solid fa-search absolute left-4 top-3.5 text-gray-500"></i>
+                    </div>
+
+                    <div id="article-list-container" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
+                </div>
+
+                <!-- VIEW: BUAT ARTIKEL BARU -->
+                <div id="view-buat-artikel" class="admin-view hidden">
+                    <div class="flex items-center gap-3 mb-6 text-gray-400 text-sm">
+                        <button onclick="navTo('view-artikel')" class="hover:text-white"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                        <span>/</span>
+                        <span class="text-solska-yellow font-bold uppercase tracking-wider text-xs">Buat Artikel Baru</span>
+                    </div>
+
+                    <form onsubmit="handleCreateArticle(event)" class="bg-solska-card border border-solska-border rounded-3xl p-6 md:p-8 space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Upload Cover Foto (via ImageBoss)</label>
+                            <div class="border-2 border-dashed border-solska-border rounded-2xl p-4 text-center hover:border-solska-yellow transition relative overflow-hidden bg-black h-48 flex items-center justify-center">
+                                <input type="file" id="art-file" accept="image/*" onchange="previewImageBoss(event, 'art')" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" required>
+                                <div id="art-preview-placeholder" class="text-gray-500 pointer-events-none">
+                                    <i class="fa-solid fa-cloud-arrow-up text-3xl mb-2"></i>
+                                    <p class="text-xs">Klik untuk pilih gambar (Upload ImageBoss)</p>
+                                </div>
+                                <img id="art-preview-img" src="" alt="Preview" class="hidden absolute inset-0 w-full h-full object-cover z-0">
+                                <div id="art-uploading-indicator" class="hidden absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-solska-yellow text-xs font-bold z-20">
+                                    <i class="fa-solid fa-spinner animate-spin text-2xl mb-1"></i> Mengunggah ke ImageBoss...
+                                </div>
+                            </div>
+                            <input type="hidden" id="art-image-url">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Judul Artikel</label>
+                                <input type="text" id="art-title" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-solska-yellow">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Kategori / Tag</label>
+                                <select id="art-tag" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-solska-yellow">
+                                    <option value="Mitos & Fakta">Mitos & Fakta</option>
+                                    <option value="Teknologi Solska">Teknologi Solska</option>
+                                    <option value="Bisnis & Kemitraan">Bisnis & Kemitraan</option>
+                                    <option value="Tips & Trik">Tips & Trik</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Isi Konten Artikel</label>
+                            <textarea id="art-content" rows="6" required class="w-full bg-black border border-solska-border rounded-xl p-4 text-sm text-white focus:outline-none focus:border-solska-yellow"></textarea>
+                        </div>
+
+                        <button type="submit" id="btn-submit-art" class="bg-solska-yellow text-black font-black text-sm uppercase px-8 py-4 rounded-xl hover:bg-white transition flex items-center justify-center gap-2">
+                            <span id="btn-art-text">Publikasikan Artikel</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- VIEW: PROFIL AKUN -->
+                <div id="view-profile" class="admin-view hidden">
+                    <div class="max-w-3xl mx-auto space-y-6">
+                        <div class="bg-solska-card border border-solska-border rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
+                            <img id="profile-view-avatar" src="https://via.placeholder.com/150" class="w-24 h-24 rounded-full object-cover border-2 border-solska-yellow" alt="Profile">
+                            <div class="flex-1 text-center md:text-left">
+                                <h2 id="profile-view-name" class="text-2xl font-black text-white uppercase">Admin Solska</h2>
+                                <p id="profile-view-email" class="text-xs text-solska-yellow font-mono mt-1">admin@solska.id</p>
+                                <p id="profile-view-bio" class="text-xs text-gray-400 mt-3 italic">"Belum ada bio akun."</p>
+                            </div>
+                            <button onclick="navTo('view-edit-profile')" class="bg-solska-yellow text-black font-black text-xs uppercase px-5 py-3 rounded-xl hover:bg-white transition">
+                                <i class="fa-solid fa-pen-to-square mr-1"></i> Edit Profil
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-solska-card border border-solska-border p-6 rounded-2xl">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-solska-yellow mb-3"><i class="fa-solid fa-ranking-star mr-2"></i> Progres Keaktifan Admin</h3>
+                                <p class="text-2xl font-black text-white">Level 5 (Elite Operator)</p>
+                                <p class="text-xs text-gray-500 mt-1">98% Standar Operasional Terpenuhi</p>
+                            </div>
+                            <div class="bg-solska-card border border-solska-border p-6 rounded-2xl">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-solska-yellow mb-3"><i class="fa-solid fa-server mr-2"></i> Status Sistem</h3>
+                                <p class="text-2xl font-black text-green-400">Optimal / Secure</p>
+                                <p class="text-xs text-gray-500 mt-1">ImageBoss API & Firestore Connected</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW: EDIT PROFIL -->
+                <div id="view-edit-profile" class="admin-view hidden">
+                    <div class="max-w-xl mx-auto">
+                        <div class="flex items-center gap-3 mb-6 text-gray-400 text-sm">
+                            <button onclick="navTo('view-profile')" class="hover:text-white"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                            <span>/</span>
+                            <span class="text-solska-yellow font-bold uppercase tracking-wider text-xs">Edit Profil</span>
+                        </div>
+
+                        <form onsubmit="handleUpdateProfile(event)" class="bg-solska-card border border-solska-border rounded-3xl p-6 md:p-8 space-y-6">
+                            <div class="flex flex-col items-center">
+                                <div class="relative w-24 h-24 rounded-full overflow-hidden border-2 border-solska-yellow mb-3 group">
+                                    <img id="edit-preview-img" src="https://via.placeholder.com/150" class="w-full h-full object-cover">
+                                    <input type="file" id="edit-avatar-file" accept="image/*" onchange="previewImageBoss(event, 'profile')" class="absolute inset-0 opacity-0 cursor-pointer z-10">
+                                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none">Ganti</div>
+                                    <div id="profile-uploading-indicator" class="hidden absolute inset-0 bg-black/80 flex items-center justify-center text-solska-yellow text-[10px] font-bold z-20">
+                                        <i class="fa-solid fa-spinner animate-spin"></i>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="edit-avatar-url">
+                                <span class="text-[10px] text-gray-500">Klik foto untuk unggah via ImageBoss</span>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Nama Lengkap</label>
+                                <input type="text" id="edit-name" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-solska-yellow">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Bio Singkat</label>
+                                <textarea id="edit-bio" rows="3" placeholder="Tulis bio singkat..." class="w-full bg-black border border-solska-border rounded-xl p-4 text-sm text-white focus:outline-none focus:border-solska-yellow"></textarea>
+                            </div>
+
+                            <button type="submit" id="btn-save-profile" class="w-full bg-solska-yellow text-black font-black text-sm uppercase py-4 rounded-xl hover:bg-white transition flex items-center justify-center gap-2">
+                                <span id="btn-profile-text">Simpan Perubahan Profil</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL: BUAT ORDERAN BARU -->
+    <div id="modal-new-order" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-solska-card border border-solska-border rounded-3xl p-6 w-full max-w-lg">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-black uppercase text-white">Buat Orderan Baru</h3>
+                <button onclick="document.getElementById('modal-new-order').classList.add('hidden')" class="text-gray-500 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="handleCreateOrder(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-solska-yellow mb-1">Nama Pemilik / Klien</label>
+                    <input type="text" id="ord-owner" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-solska-yellow">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-solska-yellow mb-1">Nama Sepatu</label>
+                    <input type="text" id="ord-shoe" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-solska-yellow">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-solska-yellow mb-1">Catatan Mekanik</label>
+                    <textarea id="ord-note" rows="2" class="w-full bg-black border border-solska-border rounded-xl p-3 text-sm text-white focus:outline-none focus:border-solska-yellow" placeholder="Contoh: Deep Clean Suede..."></textarea>
+                </div>
+                <button type="submit" id="btn-submit-ord" class="w-full bg-solska-yellow text-black font-black text-xs uppercase py-3.5 rounded-xl hover:bg-white transition mt-2">
+                    <span id="btn-ord-text">Generate Order & ID</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL UPLOAD FOTO (BEFORE / AFTER) -->
+    <div id="modal-upload-photo" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-solska-card border border-solska-border rounded-3xl p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-photo-title" class="text-sm font-black uppercase text-white">Upload Foto</h3>
+                <button onclick="closePhotoModal()" class="text-gray-500 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="space-y-4">
+                <input type="hidden" id="upload-target-id">
+                <input type="hidden" id="upload-target-type">
+                
+                <div class="border-2 border-dashed border-solska-border rounded-2xl p-4 text-center relative overflow-hidden bg-black h-40 flex items-center justify-center">
+                    <input type="file" id="order-photo-file" accept="image/*" onchange="previewOrderPhoto(event)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                    <div id="order-photo-placeholder" class="text-gray-500 text-xs">Klik untuk pilih foto</div>
+                    <img id="order-photo-preview" src="" class="hidden absolute inset-0 w-full h-full object-cover">
+                    <div id="order-photo-loading" class="hidden absolute inset-0 bg-black/80 flex items-center justify-center text-solska-yellow text-xs font-bold z-20">
+                        <i class="fa-solid fa-spinner animate-spin mr-2"></i> Mengunggah ke ImageBoss...
+                    </div>
+                </div>
+                <input type="hidden" id="order-photo-uploaded-url">
+
+                <button onclick="submitOrderPhotoUpload()" id="btn-submit-ord-photo" class="w-full bg-solska-yellow text-black font-black text-xs uppercase py-3 rounded-xl hover:bg-white transition">
+                    Simpan & Lanjutkan Status
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ==========================================
+        // 1. CONFIG & INIT
+        // ==========================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyC4aFt9HoTdTtgVoNwlgTmHq6fhPFT_33Q",
+            authDomain: "sidegram-2e872.firebaseapp.com",
+            projectId: "sidegram-2e872",
+            storageBucket: "sidegram-2e872.firebasestorage.app",
+            messagingSenderId: "926330748972",
+            appId: "1:926330748972:web:bea7ffc0a51a0c752c9189",
+            measurementId: "G-MQ7WZX9PS9"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        const IMAGEBOSS_TOKEN = "56495aa346b8f9ac4882db0534c602600a74b85f5386f15eefe370064cf985d9";
+
+        let allOrders = [];
+        let allArticles = [];
+        let currentOrderFilter = 'Semua';
+        let currentArtCatFilter = 'Semua';
+
+        // ==========================================
+        // 2. AUTH & VISITOR LOGGING
+        // ==========================================
+        auth.onAuthStateChanged(async user => {
+            if (user && !user.isAnonymous) {
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('app-layout').classList.remove('hidden');
+                loadAdminProfile(user.uid, user.email);
+                logVisitor(user.uid);
+                fetchOrders();
+                fetchArticles();
+                fetchVisitorsLog();
+            } else {
+                document.getElementById('login-screen').classList.remove('hidden');
+                document.getElementById('app-layout').classList.add('hidden');
+            }
+        });
+
+        async function logVisitor(uid) {
+            try {
+                await db.collection('visitors').add({
+                    uid: uid,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    device: navigator.userAgent
+                });
+            } catch (e) { console.error(e); }
+        }
+
+        async function fetchVisitorsLog() {
+            try {
+                const snap = await db.collection('visitors').orderBy('timestamp', 'desc').limit(10).get();
+                let html = '';
+                snap.forEach(doc => {
+                    const data = doc.data();
+                    const timeStr = data.timestamp ? data.timestamp.toDate().toLocaleString('id-ID') : 'Baru saja';
+                    html += `
+                        <tr class="border-b border-solska-border/50">
+                            <td class="py-3 font-mono text-solska-yellow">${data.uid.substring(0, 10)}...</td>
+                            <td class="py-3">${timeStr}</td>
+                            <td class="py-3 truncate max-w-xs text-gray-500">${data.device}</td>
+                        </tr>
+                    `;
+                });
+                document.getElementById('stat-visitors').innerText = snap.size + "+";
+                document.getElementById('visitor-table-body').innerHTML = html || '<tr><td colspan="3" class="py-4 text-center">Belum ada data</td></tr>';
+            } catch(e) { console.error(e); }
+        }
+
+        async function loadAdminProfile(uid, email) {
+            try {
+                const docRef = await db.collection('admins').doc(uid).get();
+                let name = "Admin Solska", avatar = "https://via.placeholder.com/150", bio = "Dewan Direksi & Pengelola Sistem Solska.";
+                if(docRef.exists) {
+                    const data = docRef.data();
+                    name = data.name || name; avatar = data.avatar || avatar; bio = data.bio || bio;
+                }
+                document.getElementById('sidebar-name').innerText = name;
+                document.getElementById('sidebar-avatar').src = avatar;
+                document.getElementById('profile-view-name').innerText = name;
+                document.getElementById('profile-view-email').innerText = email;
+                document.getElementById('profile-view-avatar').src = avatar;
+                document.getElementById('profile-view-bio').innerText = `"${bio}"`;
+
+                document.getElementById('edit-name').value = name;
+                document.getElementById('edit-bio').value = bio;
+                document.getElementById('edit-preview-img').src = avatar;
+                document.getElementById('edit-avatar-url').value = avatar;
+            } catch(e) { console.error(e); }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-pass').value;
+            const err = document.getElementById('login-error');
+            err.classList.add('hidden');
+            try {
+                await auth.signInWithEmailAndPassword(email, pass);
+            } catch (error) {
+                err.innerText = "Akses ditolak: " + error.message;
+                err.classList.remove('hidden');
+            }
+        }
+
+        function handleLogout() { auth.signOut(); }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        }
+
+        function navTo(viewId, btnEl = null) {
+            document.querySelectorAll('.admin-view').forEach(el => el.classList.add('hidden'));
+            document.getElementById(viewId).classList.remove('hidden');
+            if (btnEl) {
+                document.querySelectorAll('.nav-link').forEach(b => {
+                    b.classList.remove('bg-solska-yellow', 'text-black');
+                    b.classList.add('text-gray-400', 'bg-transparent');
+                });
+                btnEl.classList.remove('text-gray-400', 'bg-transparent');
+                btnEl.classList.add('bg-solska-yellow', 'text-black');
+            }
+            if (window.innerWidth < 768) document.getElementById('sidebar').classList.add('-translate-x-full');
+        }
+
+        // ==========================================
+        // 3. IMAGEBOSS UPLOAD API
+        // ==========================================
+        async function previewImageBoss(event, type) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                if(type === 'art') {
+                    document.getElementById('art-preview-placeholder').classList.add('hidden');
+                    const img = document.getElementById('art-preview-img');
+                    img.src = e.target.result;
+                    img.classList.remove('hidden');
+                } else if(type === 'profile') {
+                    document.getElementById('edit-preview-img').src = e.target.result;
+                }
+            };
+            reader.readAsDataURL(file);
+
+            const loadingEl = document.getElementById(type === 'art' ? 'art-uploading-indicator' : 'profile-uploading-indicator');
+            if(loadingEl) loadingEl.classList.remove('hidden');
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const res = await fetch(`https://api.imageboss.me/v1/media?token=${IMAGEBOSS_TOKEN}`, {
+                    method: 'POST',
+                    body: formData
+                });
+                const json = await res.json();
+                const uploadedUrl = json.url || json.secure_url || json.link;
+                
+                if(uploadedUrl) {
+                    if(type === 'art') document.getElementById('art-image-url').value = uploadedUrl;
+                    if(type === 'profile') document.getElementById('edit-avatar-url').value = uploadedUrl;
+                } else {
+                    const fallback = document.getElementById(type === 'art' ? 'art-preview-img' : 'edit-preview-img').src;
+                    if(type === 'art') document.getElementById('art-image-url').value = fallback;
+                    if(type === 'profile') document.getElementById('edit-avatar-url').value = fallback;
+                }
+            } catch (err) {
+                const fallback = document.getElementById(type === 'art' ? 'art-preview-img' : 'edit-preview-img').src;
+                if(type === 'art') document.getElementById('art-image-url').value = fallback;
+                if(type === 'profile') document.getElementById('edit-avatar-url').value = fallback;
+            } finally {
+                if(loadingEl) loadingEl.classList.add('hidden');
+            }
+        }
+
+        // ==========================================
+        // 4. LAYANAN & STATUS (ORDERS) + VALIDASI FOTO
+        // ==========================================
+        async function fetchOrders() {
+            try {
+                const snap = await db.collection('tracking').get();
+                allOrders = [];
+                let active = 0, done = 0;
+                snap.forEach(doc => {
+                    const d = doc.data();
+                    d.id = doc.id;
+                    allOrders.push(d);
+                    if(d.adminStatus === 'Selesai') done++;
+                    else if(d.adminStatus === 'Proses') active++;
+                });
+                document.getElementById('stat-active-orders').innerText = active;
+                document.getElementById('stat-done-orders').innerText = done;
+                renderOrders();
+            } catch(e) { console.error(e); }
+        }
+
+        function renderOrders() {
+            const container = document.getElementById('order-list-container');
+            const search = document.getElementById('search-order').value.toLowerCase();
+            
+            let filtered = allOrders.filter(ord => {
+                const matchSearch = ord.id.toLowerCase().includes(search) || (ord.owner && ord.owner.toLowerCase().includes(search));
+                const matchFilter = (currentOrderFilter === 'Semua') || (ord.adminStatus === currentOrderFilter);
+                return matchSearch && matchFilter;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="text-center text-gray-600 py-10 bg-solska-card rounded-2xl border border-solska-border">Tidak ada pesanan ditemukan.</div>';
+                return;
+            }
+
+            let html = '';
+            filtered.sort((a,b) => b.id.localeCompare(a.id)).forEach(ord => {
+                let btnHtml = '', statusBadge = '', state = ord.adminStatus || 'Waiting';
+
+                if (state === 'Waiting') {
+                    statusBadge = '<span class="text-[10px] bg-gray-700 text-white px-2 py-1 rounded">WAITING</span>';
+                    btnHtml = `<button onclick="checkAndCycleStatus('${ord.id}', 'Waiting')" class="bg-gray-600 hover:bg-solska-yellow hover:text-black text-white text-xs font-bold px-4 py-2 rounded-lg transition">Set ke Proses</button>`;
+                } else if (state === 'Proses') {
+                    statusBadge = '<span class="text-[10px] bg-solska-yellow text-black font-bold px-2 py-1 rounded">PROSES</span>';
+                    btnHtml = `<button onclick="checkAndCycleStatus('${ord.id}', 'Proses')" class="bg-solska-yellow text-black hover:bg-green-400 text-xs font-bold px-4 py-2 rounded-lg transition">Set ke Selesai</button>`;
+                } else {
+                    statusBadge = '<span class="text-[10px] bg-green-500 text-white font-bold px-2 py-1 rounded">SELESAI</span>';
+                    btnHtml = `<button onclick="checkAndCycleStatus('${ord.id}', 'Selesai')" class="border border-green-500 text-green-500 hover:bg-gray-600 hover:text-white text-xs font-bold px-4 py-2 rounded-lg transition">Reset</button>`;
+                }
+
+                html += `
+                <div class="bg-black border border-solska-border rounded-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-1">
+                            <span class="font-mono text-solska-yellow font-bold">${ord.id}</span>
+                            <button onclick="copyCode('${ord.id}')" class="text-gray-500 hover:text-white" title="Salin Kode"><i class="fa-solid fa-copy"></i></button>
+                            ${statusBadge}
+                        </div>
+                        <h4 class="text-sm font-bold text-white uppercase">${ord.shoe || '-'}</h4>
+                        <p class="text-xs text-gray-500 mt-1">${ord.owner || '-'}</p>
+                    </div>
+                    <div>${btnHtml}</div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function setOrderFilter(filterVal, btnEl) {
+            currentOrderFilter = filterVal;
+            document.querySelectorAll('.order-filter-btn').forEach(b => {
+                b.className = 'order-filter-btn shrink-0 bg-black text-gray-400 font-bold text-xs px-4 py-2 rounded-full border border-solska-border transition';
+            });
+            btnEl.className = 'order-filter-btn shrink-0 bg-solska-yellow text-black font-bold text-xs px-4 py-2 rounded-full border border-solska-yellow transition';
+            renderOrders();
+        }
+
+        function filterOrders() { renderOrders(); }
+
+        function copyCode(code) {
+            navigator.clipboard.writeText(code).then(() => alert(`Kode Unik ${code} berhasil disalin untuk customer!`));
+        }
+
+        // VALIDASI FOTO SEBELUM LANJUT STATUS
+        function checkAndCycleStatus(id, currentState) {
+            const ord = allOrders.find(o => o.id === id);
+            if (!ord) return;
+
+            if (currentState === 'Waiting') {
+                // Jika dari Waiting ke Proses, wajib cek apakah foto 'imgBefore' ada
+                if (!ord.imgBefore || ord.imgBefore === '') {
+                    alert("PEMBERITAHUAN: Wajib upload foto Before terlebih dahulu sebelum orderan dapat diproses!");
+                    openPhotoModal(id, 'before');
+                    return;
+                }
+                updateOrderStatus(id, 'Proses', 'SEDANG DISIKAT DEWA', 'bg-solska-yellow text-black');
+            } else if (currentState === 'Proses') {
+                // Jika dari Proses ke Selesai, wajib cek apakah foto 'imgCurrent' (after) ada
+                if (!ord.imgCurrent || ord.imgCurrent === '') {
+                    alert("PEMBERITAHUAN: Wajib upload foto After terlebih dahulu sebelum orderan dapat diselesaikan!");
+                    openPhotoModal(id, 'after');
+                    return;
+                }
+                updateOrderStatus(id, 'Selesai', 'SIAP DIAMBIL SULTAN', 'bg-green-400 text-black');
+            } else {
+                updateOrderStatus(id, 'Waiting', 'DALAM ANTRIAN', 'bg-gray-500 text-white');
+            }
+        }
+
+        async function updateOrderStatus(id, nextState, statusText, badgeClass) {
+            await db.collection('tracking').doc(id).update({ 
+                adminStatus: nextState, 
+                status: statusText, 
+                badgeBg: badgeClass 
+            });
+            fetchOrders();
+        }
+
+        // MODAL UPLOAD FOTO HANDLER
+        function openPhotoModal(id, type) {
+            document.getElementById('upload-target-id').value = id;
+            document.getElementById('upload-target-type').value = type;
+            document.getElementById('modal-photo-title').innerText = type === 'before' ? 'Upload Foto Before' : 'Upload Foto After';
+            document.getElementById('order-photo-preview').classList.add('hidden');
+            document.getElementById('order-photo-placeholder').classList.remove('hidden');
+            document.getElementById('order-photo-file').value = '';
+            document.getElementById('order-photo-uploaded-url').value = '';
+            document.getElementById('modal-upload-photo').classList.remove('hidden');
+        }
+
+        function closePhotoModal() {
+            document.getElementById('modal-upload-photo').classList.add('hidden');
+        }
+
+        async function previewOrderPhoto(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('order-photo-placeholder').classList.add('hidden');
+                const img = document.getElementById('order-photo-preview');
+                img.src = e.target.result;
+                img.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+
+            document.getElementById('order-photo-loading').classList.remove('hidden');
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const res = await fetch(`https://api.imageboss.me/v1/media?token=${IMAGEBOSS_TOKEN}`, {
+                    method: 'POST', body: formData
+                });
+                const json = await res.json();
+                const url = json.url || json.secure_url || json.link;
+                document.getElementById('order-photo-uploaded-url').value = url || document.getElementById('order-photo-preview').src;
+            } catch(e) {
+                document.getElementById('order-photo-uploaded-url').value = document.getElementById('order-photo-preview').src;
+            } finally {
+                document.getElementById('order-photo-loading').classList.add('hidden');
+            }
+        }
+
+        async function submitOrderPhotoUpload() {
+            const id = document.getElementById('upload-target-id').value;
+            const type = document.getElementById('upload-target-type').value;
+            const url = document.getElementById('order-photo-uploaded-url').value;
+
+            if(!url) { alert("Tunggu unggahan foto selesai!"); return; }
+
+            let updatePayload = {};
+            if(type === 'before') updatePayload = { imgBefore: url };
+            else updatePayload = { imgCurrent: url };
+
+            await db.collection('tracking').doc(id).update(updatePayload);
+            alert(`Foto ${type} berhasil diunggah!`);
+            closePhotoModal();
+            fetchOrders();
+        }
+
+        async function handleCreateOrder(e) {
+            e.preventDefault();
+            const btnText = document.getElementById('btn-ord-text');
+            btnText.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Menyimpan...';
+            document.getElementById('btn-submit-ord').disabled = true;
+
+            const owner = document.getElementById('ord-owner').value;
+            const shoe = document.getElementById('ord-shoe').value;
+            const note = document.getElementById('ord-note').value;
+            const code = `SLK-${Math.floor(1000 + Math.random() * 9000)}`;
+
+            try {
+                await db.collection('tracking').doc(code).set({
+                    shoe, owner, mechanicNote: note,
+                    adminStatus: 'Waiting', status: 'DALAM ANTRIAN', badgeBg: 'bg-gray-500 text-white',
+                    estimate: 'Dalam Peninjauan', imgBefore: '', imgCurrent: '',
+                    steps: [{ title: 'Pesanan Diterima', done: true, time: new Date().toLocaleString('id-ID') }]
+                });
+                alert(`Orderan Dibuat! Kode Unik: ${code}`);
+                document.getElementById('modal-new-order').classList.add('hidden');
+                e.target.reset();
+                fetchOrders();
+            } finally {
+                btnText.innerText = 'Generate Order & ID';
+                document.getElementById('btn-submit-ord').disabled = false;
+            }
+        }
+
+        // ==========================================
+        // 5. ARTIKEL LOGIC + LOADING STATE
+        // ==========================================
+        async function fetchArticles() {
+            try {
+                const snap = await db.collection('articles').get();
+                allArticles = [];
+                snap.forEach(doc => { const d = doc.data(); d.id = doc.id; allArticles.push(d); });
+                document.getElementById('stat-articles').innerText = allArticles.length;
+                renderArticlesList();
+            } catch(e) { console.error(e); }
+        }
+
+        function renderArticlesList(data = allArticles) {
+            const container = document.getElementById('article-list-container');
+            let filtered = data.filter(art => (currentArtCatFilter === 'Semua') || (art.tag === currentArtCatFilter));
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center text-gray-600 py-10 bg-solska-card rounded-2xl">Tidak ada artikel di kategori ini.</div>';
+                return;
+            }
+
+            let html = '';
+            filtered.forEach(art => {
+                html += `
+                <div class="bg-black border border-solska-border rounded-2xl p-3 flex items-center gap-4">
+                    <div class="w-20 h-20 rounded-xl shrink-0 bg-cover bg-center border border-solska-border" style="background-image: url('${art.cover}')"></div>
+                    <div class="flex-1 overflow-hidden">
+                        <span class="text-[10px] bg-solska-yellow text-black font-bold px-2 py-0.5 rounded uppercase">${art.tag || 'Umum'}</span>
+                        <h4 class="text-sm font-bold text-white uppercase mt-1 truncate">${art.title}</h4>
+                        <p class="text-xs text-gray-500 truncate mt-0.5">${art.date || '-'}</p>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function filterArticleCat(cat, btnEl) {
+            currentArtCatFilter = cat;
+            document.querySelectorAll('.art-cat-btn').forEach(b => {
+                b.className = 'art-cat-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition';
+            });
+            btnEl.className = 'art-cat-btn shrink-0 bg-solska-yellow text-black font-bold text-xs px-4 py-2 rounded-full transition';
+            renderArticlesList();
+        }
+
+        function searchArticles() {
+            const q = document.getElementById('search-article').value.toLowerCase();
+            const res = allArticles.filter(a => a.title.toLowerCase().includes(q));
+            renderArticlesList(res);
+        }
+
+        async function handleCreateArticle(e) {
+            e.preventDefault();
+            const btnText = document.getElementById('btn-art-text');
+            btnText.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Menyimpan Artikel...';
+            document.getElementById('btn-submit-art').disabled = true;
+
+            const title = document.getElementById('art-title').value;
+            const tag = document.getElementById('art-tag').value;
+            const content = document.getElementById('art-content').value;
+            const cover = document.getElementById('art-image-url').value;
+
+            if(!cover) { 
+                alert("Tunggu proses upload gambar ImageBoss selesai!"); 
+                btnText.innerText = 'Publikasikan Artikel';
+                document.getElementById('btn-submit-art').disabled = false;
+                return; 
+            }
+
+            try {
+                await db.collection('articles').add({
+                    title, tag, cover, content: `<p>${content}</p>`, desc: content.substring(0, 100),
+                    author: 'Admin', date: new Date().toLocaleDateString('id-ID', {day:'2-digit', month:'long', year:'numeric'})
+                });
+                alert("Artikel berhasil dipublikasikan!");
+                e.target.reset();
+                document.getElementById('art-preview-placeholder').classList.remove('hidden');
+                document.getElementById('art-preview-img').classList.add('hidden');
+                fetchArticles();
+                navTo('view-artikel');
+            } finally {
+                btnText.innerText = 'Publikasikan Artikel';
+                document.getElementById('btn-submit-art').disabled = false;
+            }
+        }
+
+        // ==========================================
+        // 6. EDIT PROFILE + LOADING STATE
+        // ==========================================
+        async function handleUpdateProfile(e) {
+            e.preventDefault();
+            const user = auth.currentUser;
+            if(!user) return;
+
+            const btnText = document.getElementById('btn-profile-text');
+            btnText.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Menyimpan Profil...';
+            document.getElementById('btn-save-profile').disabled = true;
+
+            const name = document.getElementById('edit-name').value;
+            const bio = document.getElementById('edit-bio').value;
+            const avatar = document.getElementById('edit-avatar-url').value;
+
+            try {
+                await db.collection('admins').doc(user.uid).set({ name, bio, avatar }, { merge: true });
+                alert("Profil berhasil diperbarui!");
+                loadAdminProfile(user.uid, user.email);
+                navTo('view-profile');
+            } finally {
+                btnText.innerText = 'Simpan Perubahan Profil';
+                document.getElementById('btn-save-profile').disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
