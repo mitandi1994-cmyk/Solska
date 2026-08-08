@@ -7,102 +7,56 @@
          BASIC META
     ========================== -->
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOLSKA Admin Panel & Command Center</title>
-
-    <meta name="description"
-          content="SOLSKA Admin Panel & Command Center — pusat administrasi, pengelolaan data, operasional, dan manajemen platform SOLSKA.">
-
-    <meta name="author"
-          content="SOLSKA">
-
-    <meta name="publisher"
-          content="SOLSKA">
-
-    <meta name="language"
-          content="id">
+    <meta name="description" content="SOLSKA Admin Panel & Command Center — pusat administrasi, pengelolaan data, operasional, dan manajemen platform SOLSKA.">
+    <meta name="author" content="SOLSKA">
+    <meta name="publisher" content="SOLSKA">
+    <meta name="language" content="id">
 
     <!-- =========================
          SECURITY / SEARCH
          ADMIN JANGAN DIINDEX
     ========================== -->
-    <meta name="robots"
-          content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-
-    <meta name="googlebot"
-          content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-
-    <meta name="bingbot"
-          content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 
     <!-- =========================
          CANONICAL
     ========================== -->
-    <link rel="canonical"
-          href="https://solska.id/admin.html">
+    <link rel="canonical" href="https://solska.id/admin.html">
 
     <!-- =========================
          FAVICON
     ========================== -->
-    <link rel="icon"
-          type="image/png"
-          href="/favicon.png">
-
-    <link rel="shortcut icon"
-          type="image/png"
-          href="/favicon.png">
-
-    <link rel="apple-touch-icon"
-          href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
 
     <!-- =========================
          THEME / MOBILE
     ========================== -->
-    <meta name="theme-color"
-          content="#0A0A0A">
-
-    <meta name="color-scheme"
-          content="dark">
-
-    <meta name="mobile-web-app-capable"
-          content="yes">
-
-    <meta name="apple-mobile-web-app-capable"
-          content="yes">
-
-    <meta name="apple-mobile-web-app-status-bar-style"
-          content="black">
-
-    <meta name="apple-mobile-web-app-title"
-          content="SOLSKA Admin">
+    <meta name="theme-color" content="#0A0A0A">
+    <meta name="color-scheme" content="dark">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SOLSKA Admin">
 
     <!-- =========================
          REFERRER POLICY
     ========================== -->
-    <meta name="referrer"
-          content="strict-origin-when-cross-origin">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- =========================
          PERFORMANCE
     ========================== -->
-    <link rel="preconnect"
-          href="https://cdn.tailwindcss.com">
-
-    <link rel="preconnect"
-          href="https://cdnjs.cloudflare.com">
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link rel="preconnect"
-          href="https://www.gstatic.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com">
 
     <!-- =========================
          TAILWIND CSS
@@ -112,22 +66,18 @@
     <!-- =========================
          FONT AWESOME
     ========================== -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- =========================
          GOOGLE FONTS
     ========================== -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
     <!-- =========================
          FIREBASE SDK COMPAT
     ========================== -->
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
 
     <!-- =========================
@@ -137,7 +87,6 @@
         tailwind.config = {
             theme: {
                 extend: {
-
                     colors: {
                         solska: {
                             yellow: '#FFEA00',
@@ -146,36 +95,14 @@
                             border: '#262626'
                         }
                     },
-
                     fontFamily: {
                         sans: ['Inter', 'sans-serif']
                     }
-
                 }
             }
         }
     </script>
 
-    <!-- =========================
-         ADMIN APPLICATION SCHEMA
-         BUKAN SEO PUBLIC
-    ========================== -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "SOLSKA Admin Panel & Command Center",
-        "url": "https://solska.id/admin.html",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "description": "Internal administration and command center for SOLSKA.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "SOLSKA",
-            "url": "https://solska.id/"
-        }
-    }
-    </script>
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -236,15 +163,25 @@
                 </div>
             </div>
 
-            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto hide-scrollbar">
                 <button onclick="navTo('view-dashboard', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-black bg-solska-yellow flex items-center gap-3 transition">
                     <i class="fa-solid fa-chart-pie w-5"></i> Dashboard
                 </button>
+                <button onclick="navTo('view-order-online', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition relative">
+                    <i class="fa-solid fa-bell w-5"></i> Orderan Online
+                    <span id="badge-new-orders" class="absolute right-3 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full hidden">Baru</span>
+                </button>
                 <button onclick="navTo('view-layanan', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition">
-                    <i class="fa-solid fa-box-open w-5"></i> Layanan & Status
+                    <i class="fa-solid fa-spinner w-5"></i> Status Tracking
+                </button>
+                <button onclick="navTo('view-history', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition">
+                    <i class="fa-solid fa-clock-rotate-left w-5"></i> Riwayat Order
+                </button>
+                <button onclick="navTo('view-katalog-layanan', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition">
+                    <i class="fa-solid fa-box-open w-5"></i> Katalog Layanan
                 </button>
                 <button onclick="navTo('view-artikel', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition">
-                    <i class="fa-solid fa-newspaper w-5"></i> Artikel
+                    <i class="fa-solid fa-newspaper w-5"></i> Kelola Artikel
                 </button>
                 <button onclick="navTo('view-profile', this)" class="nav-link w-full text-left px-4 py-3 rounded-xl text-sm font-bold text-gray-400 hover:bg-solska-card hover:text-white flex items-center gap-3 transition">
                     <i class="fa-solid fa-user-gear w-5"></i> Profil Akun
@@ -270,7 +207,7 @@
                 
                 <!-- VIEW: DASHBOARD -->
                 <div id="view-dashboard" class="admin-view block">
-                    <h2 class="text-2xl font-black uppercase text-white mb-6">Analitik Pengunjung Website</h2>
+                    <h2 class="text-2xl font-black uppercase text-white mb-6">Analitik Solska</h2>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                         <div class="bg-solska-card border border-solska-border p-5 rounded-2xl">
@@ -279,16 +216,16 @@
                             <p class="text-[10px] text-green-400 mt-2"><i class="fa-solid fa-shield-halved"></i> Realtime Firestore Log</p>
                         </div>
                         <div class="bg-solska-card border border-solska-border p-5 rounded-2xl">
-                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Pesanan Aktif (Proses)</p>
+                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Order Aktif (Proses)</p>
                             <p id="stat-active-orders" class="text-3xl font-black text-solska-yellow">0</p>
                         </div>
                         <div class="bg-solska-card border border-solska-border p-5 rounded-2xl">
-                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Pesanan Selesai</p>
+                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Order Selesai</p>
                             <p id="stat-done-orders" class="text-3xl font-black text-white">0</p>
                         </div>
                         <div class="bg-solska-card border border-solska-border p-5 rounded-2xl">
-                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Total Artikel</p>
-                            <p id="stat-articles" class="text-3xl font-black text-white">0</p>
+                            <p class="text-xs uppercase text-gray-500 font-bold mb-1">Total Layanan</p>
+                            <p id="stat-services" class="text-3xl font-black text-white">0</p>
                         </div>
                     </div>
 
@@ -311,12 +248,50 @@
                     </div>
                 </div>
 
-                <!-- VIEW: LAYANAN & STATUS -->
+                <!-- VIEW: ORDERAN ONLINE -->
+                <div id="view-order-online" class="admin-view hidden">
+                    <h2 class="text-2xl font-black uppercase text-white mb-6">Orderan Masuk Online</h2>
+                    
+                    <!-- Filter Order Online -->
+                    <div class="flex overflow-x-auto hide-scrollbar gap-2 pb-4 mb-4 border-b border-solska-border">
+                        <button onclick="setOnlineFilter('Semua', this)" class="online-filter-btn shrink-0 bg-solska-yellow text-black font-bold text-xs px-4 py-2 rounded-full transition">Semua</button>
+                        <button onclick="setOnlineFilter('Tinjauan Admin', this)" class="online-filter-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition">Tinjauan Admin</button>
+                        <button onclick="setOnlineFilter('Dipickup', this)" class="online-filter-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition">Dipickup</button>
+                        <button onclick="setOnlineFilter('Ditolak', this)" class="online-filter-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition">Ditolak</button>
+                    </div>
+
+                    <div id="online-orders-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div class="col-span-full text-center text-gray-500 py-10"><i class="fa-solid fa-spinner animate-spin"></i> Memuat Data Orderan...</div>
+                    </div>
+                </div>
+
+                <!-- VIEW: RIWAYAT ORDER (HISTORY) -->
+                <div id="view-history" class="admin-view hidden">
+                    <h2 class="text-2xl font-black uppercase text-white mb-6">Riwayat Semua Order</h2>
+                    <div class="bg-solska-card border border-solska-border rounded-2xl p-6 overflow-x-auto">
+                        <table class="w-full text-left text-xs text-gray-300 min-w-max">
+                            <thead class="border-b border-solska-border text-gray-500 uppercase">
+                                <tr>
+                                    <th class="pb-3">Waktu (Terbaru)</th>
+                                    <th class="pb-3">Tipe / ID</th>
+                                    <th class="pb-3">Nama Klien</th>
+                                    <th class="pb-3">Layanan / Detail</th>
+                                    <th class="pb-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-table-body">
+                                <tr><td colspan="5" class="py-4 text-center text-gray-600">Memuat riwayat...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- VIEW: STATUS ORDER (LAYANAN TRACKING) -->
                 <div id="view-layanan" class="admin-view hidden">
                     <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-                        <h2 class="text-2xl font-black uppercase text-white">Manajemen Layanan</h2>
+                        <h2 class="text-2xl font-black uppercase text-white">Manajemen Status Tracking</h2>
                         <button onclick="document.getElementById('modal-new-order').classList.remove('hidden')" class="bg-solska-yellow text-black font-black text-xs uppercase px-5 py-2.5 rounded-lg hover:bg-white transition flex items-center justify-center gap-2 w-full md:w-auto">
-                            <i class="fa-solid fa-plus"></i> Buat Orderan Baru
+                            <i class="fa-solid fa-plus"></i> Buat Tracking Manual
                         </button>
                     </div>
 
@@ -336,6 +311,25 @@
 
                     <div id="order-list-container" class="space-y-4">
                         <div class="text-center text-gray-500 py-10"><i class="fa-solid fa-spinner animate-spin"></i> Memuat Data...</div>
+                    </div>
+                </div>
+
+                <!-- VIEW: KATALOG LAYANAN -->
+                <div id="view-katalog-layanan" class="admin-view hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-black uppercase text-white">Katalog Layanan</h2>
+                        <button onclick="document.getElementById('modal-new-service').classList.remove('hidden')" class="bg-solska-yellow text-black font-black w-10 h-10 rounded-xl hover:bg-white transition flex items-center justify-center" title="Buat Layanan Baru">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+
+                    <div class="relative w-full mb-6">
+                        <input type="text" id="search-services" onkeyup="searchServices()" placeholder="Cari nama layanan..." class="w-full bg-solska-card border border-solska-border rounded-xl px-4 py-3 pl-10 text-sm text-white focus:outline-none focus:border-solska-yellow">
+                        <i class="fa-solid fa-search absolute left-4 top-3.5 text-gray-500"></i>
+                    </div>
+
+                    <div id="services-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="col-span-full text-center text-gray-500 py-10"><i class="fa-solid fa-spinner animate-spin"></i> Memuat Katalog Layanan...</div>
                     </div>
                 </div>
 
@@ -364,19 +358,20 @@
                     <div id="article-list-container" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
                 </div>
 
-                <!-- VIEW: BUAT ARTIKEL BARU -->
+                <!-- VIEW: BUAT / EDIT ARTIKEL -->
                 <div id="view-buat-artikel" class="admin-view hidden">
                     <div class="flex items-center gap-3 mb-6 text-gray-400 text-sm">
                         <button onclick="navTo('view-artikel')" class="hover:text-white"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
                         <span>/</span>
-                        <span class="text-solska-yellow font-bold uppercase tracking-wider text-xs">Buat Artikel Baru</span>
+                        <span id="label-buat-edit-artikel" class="text-solska-yellow font-bold uppercase tracking-wider text-xs">Buat Artikel Baru</span>
                     </div>
 
-                    <form onsubmit="handleCreateArticle(event)" class="bg-solska-card border border-solska-border rounded-3xl p-6 md:p-8 space-y-6">
+                    <form onsubmit="handleCreateEditArticle(event)" class="bg-solska-card border border-solska-border rounded-3xl p-6 md:p-8 space-y-6">
+                        <input type="hidden" id="art-id-hidden">
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Upload Cover Foto (via ImageBoss)</label>
                             <div class="border-2 border-dashed border-solska-border rounded-2xl p-4 text-center hover:border-solska-yellow transition relative overflow-hidden bg-black h-48 flex items-center justify-center">
-                                <input type="file" id="art-file" accept="image/*" onchange="previewImageBoss(event, 'art')" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" required>
+                                <input type="file" id="art-file" accept="image/*" onchange="previewImageBoss(event, 'art')" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
                                 <div id="art-preview-placeholder" class="text-gray-500 pointer-events-none">
                                     <i class="fa-solid fa-cloud-arrow-up text-3xl mb-2"></i>
                                     <p class="text-xs">Klik untuk pilih gambar (Upload ImageBoss)</p>
@@ -406,7 +401,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Isi Konten Artikel</label>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-solska-yellow mb-2">Isi Konten Artikel (Bisa gunakan tag HTML)</label>
                             <textarea id="art-content" rows="6" required class="w-full bg-black border border-solska-border rounded-xl p-4 text-sm text-white focus:outline-none focus:border-solska-yellow"></textarea>
                         </div>
 
@@ -490,14 +485,14 @@
         </main>
     </div>
 
-    <!-- MODAL: BUAT ORDERAN BARU -->
+    <!-- MODAL: BUAT ORDERAN (TRACKING) MANUAL -->
     <div id="modal-new-order" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-solska-card border border-solska-border rounded-3xl p-6 w-full max-w-lg">
+        <div class="bg-solska-card border border-solska-border rounded-3xl p-6 w-full max-w-lg shadow-2xl">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-lg font-black uppercase text-white">Buat Orderan Baru</h3>
+                <h3 class="text-lg font-black uppercase text-white">Buat Tracking Manual</h3>
                 <button onclick="document.getElementById('modal-new-order').classList.add('hidden')" class="text-gray-500 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <form onsubmit="handleCreateOrder(event)" class="space-y-4">
+            <form onsubmit="handleCreateTracking(event)" class="space-y-4">
                 <div>
                     <label class="block text-[10px] font-bold uppercase tracking-wider text-solska-yellow mb-1">Nama Pemilik / Klien</label>
                     <input type="text" id="ord-owner" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-solska-yellow">
@@ -517,9 +512,36 @@
         </div>
     </div>
 
-    <!-- MODAL UPLOAD FOTO (BEFORE / AFTER) -->
+    <!-- MODAL: BUAT LAYANAN BARU -->
+    <div id="modal-new-service" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-solska-card border border-solska-border rounded-3xl p-6 w-full max-w-lg shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-black uppercase text-white">Buat Layanan Baru</h3>
+                <button onclick="document.getElementById('modal-new-service').classList.add('hidden')" class="text-gray-500 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="handleCreateService(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-solska-yellow mb-1">Nama Layanan</label>
+                    <input type="text" id="srv-name" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-solska-yellow" placeholder="Misal: Deep Clean Premium">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-solska-yellow mb-1">Harga (Rp)</label>
+                    <input type="number" id="srv-price" required class="w-full bg-black border border-solska-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-solska-yellow" placeholder="150000">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-solska-yellow mb-1">Deskripsi Singkat</label>
+                    <textarea id="srv-desc" rows="2" required class="w-full bg-black border border-solska-border rounded-xl p-3 text-sm text-white focus:outline-none focus:border-solska-yellow" placeholder="Detail pelayanan..."></textarea>
+                </div>
+                <button type="submit" id="btn-submit-srv" class="w-full bg-solska-yellow text-black font-black text-xs uppercase py-3.5 rounded-xl hover:bg-white transition mt-2">
+                    <span id="btn-srv-text">Simpan Layanan</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL UPLOAD FOTO (BEFORE / AFTER) UNTUK TRACKING -->
     <div id="modal-upload-photo" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-solska-card border border-solska-border rounded-3xl p-6 w-full max-w-md">
+        <div class="bg-solska-card border border-solska-border rounded-3xl p-6 w-full max-w-md shadow-2xl">
             <div class="flex justify-between items-center mb-4">
                 <h3 id="modal-photo-title" class="text-sm font-black uppercase text-white">Upload Foto</h3>
                 <button onclick="closePhotoModal()" class="text-gray-500 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
@@ -528,7 +550,7 @@
                 <input type="hidden" id="upload-target-id">
                 <input type="hidden" id="upload-target-type">
                 
-                <div class="border-2 border-dashed border-solska-border rounded-2xl p-4 text-center relative overflow-hidden bg-black h-40 flex items-center justify-center">
+                <div class="border-2 border-dashed border-solska-border rounded-2xl p-4 text-center relative overflow-hidden bg-black h-40 flex items-center justify-center hover:border-solska-yellow transition">
                     <input type="file" id="order-photo-file" accept="image/*" onchange="previewOrderPhoto(event)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
                     <div id="order-photo-placeholder" class="text-gray-500 text-xs">Klik untuk pilih foto</div>
                     <img id="order-photo-preview" src="" class="hidden absolute inset-0 w-full h-full object-cover">
@@ -566,8 +588,12 @@
 
         const IMAGEBOSS_TOKEN = "56495aa346b8f9ac4882db0534c602600a74b85f5386f15eefe370064cf985d9";
 
-        let allOrders = [];
+        let allOnlineOrders = [];
+        let allTrackingOrders = [];
         let allArticles = [];
+        let allServices = [];
+        
+        let currentOnlineOrderFilter = 'Semua';
         let currentOrderFilter = 'Semua';
         let currentArtCatFilter = 'Semua';
 
@@ -580,8 +606,11 @@
                 document.getElementById('app-layout').classList.remove('hidden');
                 loadAdminProfile(user.uid, user.email);
                 logVisitor(user.uid);
-                fetchOrders();
+                
+                fetchTrackingOrders();
+                fetchOnlineOrders();
                 fetchArticles();
+                fetchServicesCatalog();
                 fetchVisitorsLog();
             } else {
                 document.getElementById('login-screen').classList.remove('hidden');
@@ -673,7 +702,14 @@
                 btnEl.classList.add('bg-solska-yellow', 'text-black');
             }
             if (window.innerWidth < 768) document.getElementById('sidebar').classList.add('-translate-x-full');
+            document.querySelectorAll('.article-dropdown').forEach(d => d.classList.add('hidden'));
         }
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.relative')) {
+                document.querySelectorAll('.article-dropdown').forEach(d => d.classList.add('hidden'));
+            }
+        });
 
         // ==========================================
         // 3. IMAGEBOSS UPLOAD API
@@ -703,8 +739,7 @@
 
             try {
                 const res = await fetch(`https://api.imageboss.me/v1/media?token=${IMAGEBOSS_TOKEN}`, {
-                    method: 'POST',
-                    body: formData
+                    method: 'POST', body: formData
                 });
                 const json = await res.json();
                 const uploadedUrl = json.url || json.secure_url || json.link;
@@ -727,31 +762,186 @@
         }
 
         // ==========================================
-        // 4. LAYANAN & STATUS (ORDERS) + VALIDASI FOTO
+        // 4. ORDERAN ONLINE (Dari Website)
         // ==========================================
-        async function fetchOrders() {
+        async function fetchOnlineOrders() {
+            try {
+                const snap = await db.collection('orders').orderBy('createdAt', 'desc').get();
+                allOnlineOrders = [];
+                let newCount = 0;
+
+                snap.forEach(doc => {
+                    const ord = doc.data();
+                    ord.id = doc.id;
+                    allOnlineOrders.push(ord);
+                    if(ord.status === 'Tinjauan Admin') newCount++;
+                });
+                
+                const badge = document.getElementById('badge-new-orders');
+                if(newCount > 0) {
+                    badge.innerText = `${newCount} Baru`;
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
+
+                renderOnlineOrders();
+                renderHistory(); // Refresh riwayat tabel gabungan
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        function setOnlineFilter(val, btnEl) {
+            currentOnlineOrderFilter = val;
+            document.querySelectorAll('.online-filter-btn').forEach(b => {
+                b.className = 'online-filter-btn shrink-0 bg-solska-card border border-solska-border text-gray-400 font-bold text-xs px-4 py-2 rounded-full hover:border-solska-yellow transition';
+            });
+            btnEl.className = 'online-filter-btn shrink-0 bg-solska-yellow text-black font-bold text-xs px-4 py-2 rounded-full transition';
+            renderOnlineOrders();
+        }
+
+        function renderOnlineOrders() {
+            const container = document.getElementById('online-orders-container');
+            let filtered = allOnlineOrders;
+            
+            if (currentOnlineOrderFilter !== 'Semua') {
+                filtered = allOnlineOrders.filter(o => o.status === currentOnlineOrderFilter);
+            }
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center text-gray-600 py-10 bg-solska-card rounded-2xl border border-solska-border">Tidak ada data orderan.</div>';
+                return;
+            }
+
+            let html = '';
+            filtered.forEach(ord => {
+                const dateStr = ord.createdAt ? ord.createdAt.toDate().toLocaleString('id-ID') : '-';
+                let statusUI = '';
+                let actionUI = '';
+
+                if (ord.status === 'Tinjauan Admin') {
+                    statusUI = '<span class="text-[10px] bg-yellow-500/20 text-yellow-500 border border-yellow-500/50 font-bold px-2 py-1 rounded">TINJAUAN ADMIN</span>';
+                    actionUI = `
+                        <div class="flex gap-2 mt-4">
+                            <button onclick="acceptOnlineOrder('${ord.id}')" class="flex-1 bg-solska-yellow text-black text-xs font-bold py-2 rounded hover:bg-white transition">Terima & Pickup</button>
+                            <button onclick="rejectOnlineOrder('${ord.id}')" class="flex-1 border border-red-500 text-red-500 text-xs font-bold py-2 rounded hover:bg-red-500 hover:text-white transition">Tolak</button>
+                        </div>
+                    `;
+                } else if (ord.status === 'Dipickup') {
+                    statusUI = '<span class="text-[10px] bg-green-500/20 text-green-400 border border-green-500/50 font-bold px-2 py-1 rounded">DIPICKUP</span>';
+                    actionUI = `<div class="mt-4 flex items-center justify-between p-2 bg-solska-card rounded border border-green-500/30">
+                        <span class="text-xs text-gray-400">Order Masuk ke Tracking</span>
+                        <span class="text-xs text-solska-yellow font-mono">${ord.trackingCode || ''}</span>
+                    </div>`;
+                } else {
+                    statusUI = '<span class="text-[10px] bg-red-500/20 text-red-400 border border-red-500/50 font-bold px-2 py-1 rounded">DITOLAK</span>';
+                    actionUI = `<div class="mt-4 text-xs text-red-500/70 text-center p-2 bg-red-500/10 rounded">Orderan Ditolak</div>`;
+                }
+
+                let photosHtml = (ord.foto || []).map(url => `
+                    <a href="${url}" target="_blank" class="block shrink-0">
+                        <img src="${url}" class="w-12 h-12 object-cover rounded-md border border-solska-border hover:border-solska-yellow transition">
+                    </a>
+                `).join('');
+
+                html += `
+                    <div class="bg-black border border-solska-border rounded-2xl p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-sm font-black text-white uppercase truncate">${ord.nama || '-'}</h3>
+                                ${statusUI}
+                            </div>
+                            <div class="space-y-1.5 text-xs text-gray-400 mb-4">
+                                <p><i class="fa-brands fa-whatsapp text-solska-yellow w-4 text-center"></i> ${ord.whatsapp || '-'}</p>
+                                <p><i class="fa-solid fa-layer-group text-solska-yellow w-4 text-center"></i> <strong class="text-white">${ord.layanan || '-'}</strong></p>
+                                <p><i class="fa-solid fa-clock text-solska-yellow w-4 text-center"></i> Pickup: ${ord.waktuPickup ? ord.waktuPickup.replace('T', ' ') : '-'}</p>
+                                <p><i class="fa-solid fa-location-dot text-solska-yellow w-4 text-center"></i> ${ord.alamat || '-'}</p>
+                                <p class="text-[10px] text-gray-600 mt-2">Dibuat: ${dateStr}</p>
+                            </div>
+                            <div class="flex gap-2 overflow-x-auto pb-2 hide-scrollbar">
+                                ${photosHtml}
+                            </div>
+                        </div>
+                        ${actionUI}
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        async function acceptOnlineOrder(id) {
+            if(!confirm("Terima pesanan ini dan masukkan otomatis ke Status Tracking?")) return;
+            try {
+                // Fetch the detailed order data first
+                const ordRef = await db.collection('orders').doc(id).get();
+                const ordData = ordRef.data();
+
+                const code = `SLK-${Math.floor(1000 + Math.random() * 9000)}`;
+
+                // Update original online order to Dipickup and save tracking code ref
+                await db.collection('orders').doc(id).update({ 
+                    status: 'Dipickup',
+                    trackingCode: code
+                });
+
+                // Auto Create Tracking Document
+                await db.collection('tracking').doc(code).set({
+                    shoe: ordData.layanan || 'Sepatu Online',
+                    owner: ordData.nama || 'Klien', 
+                    mechanicNote: `Order Online (Pickup). Alamat: ${ordData.alamat}. HP: ${ordData.whatsapp}. Note: ${ordData.pesan || '-'}`,
+                    adminStatus: 'Waiting', 
+                    status: 'DALAM ANTRIAN (BARU DIPICKUP)', 
+                    badgeBg: 'bg-gray-500 text-white',
+                    estimate: 'Dalam Peninjauan', 
+                    imgBefore: (ordData.foto && ordData.foto.length > 0) ? ordData.foto[0] : '', 
+                    imgCurrent: '',
+                    steps: [{ title: 'Pesanan Diterima & Dipickup', done: true, time: new Date().toLocaleString('id-ID') }],
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp() // ensure history sorting
+                });
+
+                alert(`Orderan berhasil dipickup! ID Tracking Pelanggan: ${code}`);
+                fetchOnlineOrders();
+                fetchTrackingOrders(); // Reload Tracking list
+            } catch (e) { alert("Gagal update status."); console.error(e); }
+        }
+
+        async function rejectOnlineOrder(id) {
+            if(!confirm("Tolak pesanan ini secara permanen?")) return;
+            try {
+                await db.collection('orders').doc(id).update({ status: 'Ditolak' });
+                fetchOnlineOrders();
+            } catch (e) { alert("Gagal update status."); console.error(e); }
+        }
+
+        // ==========================================
+        // 5. STATUS TRACKING (OFFLINE / LANJUTAN)
+        // ==========================================
+        async function fetchTrackingOrders() {
             try {
                 const snap = await db.collection('tracking').get();
-                allOrders = [];
+                allTrackingOrders = [];
                 let active = 0, done = 0;
                 snap.forEach(doc => {
                     const d = doc.data();
                     d.id = doc.id;
-                    allOrders.push(d);
+                    allTrackingOrders.push(d);
                     if(d.adminStatus === 'Selesai') done++;
                     else if(d.adminStatus === 'Proses') active++;
                 });
                 document.getElementById('stat-active-orders').innerText = active;
                 document.getElementById('stat-done-orders').innerText = done;
-                renderOrders();
+                
+                renderTrackingOrders();
+                renderHistory(); // Refresh riwayat tabel gabungan
             } catch(e) { console.error(e); }
         }
 
-        function renderOrders() {
+        function renderTrackingOrders() {
             const container = document.getElementById('order-list-container');
             const search = document.getElementById('search-order').value.toLowerCase();
             
-            let filtered = allOrders.filter(ord => {
+            let filtered = allTrackingOrders.filter(ord => {
                 const matchSearch = ord.id.toLowerCase().includes(search) || (ord.owner && ord.owner.toLowerCase().includes(search));
                 const matchFilter = (currentOrderFilter === 'Semua') || (ord.adminStatus === currentOrderFilter);
                 return matchSearch && matchFilter;
@@ -800,51 +990,47 @@
                 b.className = 'order-filter-btn shrink-0 bg-black text-gray-400 font-bold text-xs px-4 py-2 rounded-full border border-solska-border transition';
             });
             btnEl.className = 'order-filter-btn shrink-0 bg-solska-yellow text-black font-bold text-xs px-4 py-2 rounded-full border border-solska-yellow transition';
-            renderOrders();
+            renderTrackingOrders();
         }
 
-        function filterOrders() { renderOrders(); }
+        function filterOrders() { renderTrackingOrders(); }
 
         function copyCode(code) {
             navigator.clipboard.writeText(code).then(() => alert(`Kode Unik ${code} berhasil disalin untuk customer!`));
         }
 
-        // VALIDASI FOTO SEBELUM LANJUT STATUS
         function checkAndCycleStatus(id, currentState) {
-            const ord = allOrders.find(o => o.id === id);
+            const ord = allTrackingOrders.find(o => o.id === id);
             if (!ord) return;
 
             if (currentState === 'Waiting') {
-                // Jika dari Waiting ke Proses, wajib cek apakah foto 'imgBefore' ada
                 if (!ord.imgBefore || ord.imgBefore === '') {
                     alert("PEMBERITAHUAN: Wajib upload foto Before terlebih dahulu sebelum orderan dapat diproses!");
                     openPhotoModal(id, 'before');
                     return;
                 }
-                updateOrderStatus(id, 'Proses', 'SEDANG DISIKAT DEWA', 'bg-solska-yellow text-black');
+                updateTrackingStatus(id, 'Proses', 'SEDANG DISIKAT DEWA', 'bg-solska-yellow text-black');
             } else if (currentState === 'Proses') {
-                // Jika dari Proses ke Selesai, wajib cek apakah foto 'imgCurrent' (after) ada
                 if (!ord.imgCurrent || ord.imgCurrent === '') {
                     alert("PEMBERITAHUAN: Wajib upload foto After terlebih dahulu sebelum orderan dapat diselesaikan!");
                     openPhotoModal(id, 'after');
                     return;
                 }
-                updateOrderStatus(id, 'Selesai', 'SIAP DIAMBIL SULTAN', 'bg-green-400 text-black');
+                updateTrackingStatus(id, 'Selesai', 'SIAP DIAMBIL SULTAN', 'bg-green-400 text-black');
             } else {
-                updateOrderStatus(id, 'Waiting', 'DALAM ANTRIAN', 'bg-gray-500 text-white');
+                updateTrackingStatus(id, 'Waiting', 'DALAM ANTRIAN', 'bg-gray-500 text-white');
             }
         }
 
-        async function updateOrderStatus(id, nextState, statusText, badgeClass) {
+        async function updateTrackingStatus(id, nextState, statusText, badgeClass) {
             await db.collection('tracking').doc(id).update({ 
                 adminStatus: nextState, 
                 status: statusText, 
                 badgeBg: badgeClass 
             });
-            fetchOrders();
+            fetchTrackingOrders();
         }
 
-        // MODAL UPLOAD FOTO HANDLER
         function openPhotoModal(id, type) {
             document.getElementById('upload-target-id').value = id;
             document.getElementById('upload-target-type').value = type;
@@ -905,10 +1091,10 @@
             await db.collection('tracking').doc(id).update(updatePayload);
             alert(`Foto ${type} berhasil diunggah!`);
             closePhotoModal();
-            fetchOrders();
+            fetchTrackingOrders();
         }
 
-        async function handleCreateOrder(e) {
+        async function handleCreateTracking(e) {
             e.preventDefault();
             const btnText = document.getElementById('btn-ord-text');
             btnText.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Menyimpan...';
@@ -924,12 +1110,13 @@
                     shoe, owner, mechanicNote: note,
                     adminStatus: 'Waiting', status: 'DALAM ANTRIAN', badgeBg: 'bg-gray-500 text-white',
                     estimate: 'Dalam Peninjauan', imgBefore: '', imgCurrent: '',
-                    steps: [{ title: 'Pesanan Diterima', done: true, time: new Date().toLocaleString('id-ID') }]
+                    steps: [{ title: 'Pesanan Diterima', done: true, time: new Date().toLocaleString('id-ID') }],
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
                 });
-                alert(`Orderan Dibuat! Kode Unik: ${code}`);
+                alert(`Tracking Dibuat! Kode Unik: ${code}`);
                 document.getElementById('modal-new-order').classList.add('hidden');
                 e.target.reset();
-                fetchOrders();
+                fetchTrackingOrders();
             } finally {
                 btnText.innerText = 'Generate Order & ID';
                 document.getElementById('btn-submit-ord').disabled = false;
@@ -937,14 +1124,167 @@
         }
 
         // ==========================================
-        // 5. ARTIKEL LOGIC + LOADING STATE
+        // 5.5 RIWAYAT ORDER GABUNGAN (ALL HISTORY)
+        // ==========================================
+        function renderHistory() {
+            let historyList = [];
+            
+            // Gabungkan Orderan Online
+            allOnlineOrders.forEach(o => {
+                const dateObj = o.createdAt ? o.createdAt.toDate() : new Date();
+                historyList.push({
+                    time: dateObj.getTime(),
+                    dateStr: dateObj.toLocaleString('id-ID'),
+                    type: 'Online',
+                    id: o.id,
+                    owner: o.nama,
+                    detail: o.layanan,
+                    status: o.status
+                });
+            });
+
+            // Gabungkan Orderan Tracking Manual / Lanjutan
+            allTrackingOrders.forEach(o => {
+                let dateObj = new Date();
+                if (o.createdAt) {
+                    dateObj = o.createdAt.toDate();
+                } else if (o.steps && o.steps[0] && o.steps[0].time) {
+                    // Coba parse string ke tanggal secara kasar jika ga ada object createdAt
+                    const parts = o.steps[0].time.split(',')[0].split('/');
+                    if(parts.length === 3) dateObj = new Date(parts[2], parts[1]-1, parts[0]);
+                }
+
+                historyList.push({
+                    time: dateObj.getTime(),
+                    dateStr: o.createdAt ? o.createdAt.toDate().toLocaleString('id-ID') : (o.steps && o.steps[0] ? o.steps[0].time : '-'),
+                    type: 'Tracking',
+                    id: o.id,
+                    owner: o.owner,
+                    detail: o.shoe,
+                    status: o.adminStatus
+                });
+            });
+
+            // Urutkan dari yang terbaru (descending)
+            historyList.sort((a,b) => b.time - a.time);
+
+            const tbody = document.getElementById('history-table-body');
+            if(historyList.length === 0) {
+                 tbody.innerHTML = '<tr><td colspan="5" class="py-4 text-center">Belum ada riwayat order.</td></tr>';
+                 return;
+            }
+
+            let html = '';
+            historyList.forEach(h => {
+                let badgeStyle = "bg-gray-800 text-white";
+                if(h.type === 'Online') badgeStyle = "bg-blue-600 text-white";
+                if(h.type === 'Tracking') badgeStyle = "bg-solska-yellow text-black";
+
+                html += `<tr class="border-b border-solska-border/50 hover:bg-solska-card transition">
+                    <td class="py-3 pr-2 min-w-[120px] text-gray-400">${h.dateStr}</td>
+                    <td class="py-3 pr-2">
+                        <div class="flex items-center gap-2">
+                            <span class="${badgeStyle} px-1.5 py-0.5 rounded text-[9px] uppercase font-bold tracking-widest">${h.type}</span> 
+                            <span class="font-mono text-white text-xs">${h.id.substring(0,10)}${h.id.length > 10 ? '..' : ''}</span>
+                        </div>
+                    </td>
+                    <td class="py-3 pr-2 font-bold">${h.owner || '-'}</td>
+                    <td class="py-3 pr-2 max-w-[150px] truncate text-gray-300" title="${h.detail}">${h.detail || '-'}</td>
+                    <td class="py-3 uppercase text-[10px] text-solska-yellow">${h.status || '-'}</td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+
+        // ==========================================
+        // 6. KATALOG LAYANAN (SERVICES)
+        // ==========================================
+        async function fetchServicesCatalog() {
+            try {
+                const snap = await db.collection('services').get();
+                allServices = [];
+                snap.forEach(doc => { 
+                    const d = doc.data(); 
+                    d.id = doc.id; 
+                    allServices.push(d); 
+                });
+                document.getElementById('stat-services').innerText = allServices.length;
+                renderServicesList();
+            } catch(e) { console.error(e); }
+        }
+
+        function renderServicesList(data = allServices) {
+            const container = document.getElementById('services-list-container');
+            if (data.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center text-gray-600 py-10 bg-solska-card rounded-2xl border border-solska-border">Katalog Layanan Kosong.</div>';
+                return;
+            }
+
+            let html = '';
+            data.forEach(srv => {
+                const formattedPrice = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(srv.price || 0);
+                html += `
+                <div class="bg-black border border-solska-border rounded-2xl p-5 flex flex-col justify-between hover:border-solska-yellow transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-white uppercase pr-2">${srv.name}</h3>
+                            <button onclick="deleteService('${srv.id}')" class="text-gray-500 hover:text-red-500 transition"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <p class="text-xl font-black text-solska-yellow mb-2">${formattedPrice}</p>
+                        <p class="text-xs text-gray-400 leading-relaxed">${srv.desc || '-'}</p>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function searchServices() {
+            const q = document.getElementById('search-services').value.toLowerCase();
+            const res = allServices.filter(s => s.name.toLowerCase().includes(q) || (s.desc && s.desc.toLowerCase().includes(q)));
+            renderServicesList(res);
+        }
+
+        async function handleCreateService(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit-srv');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i>';
+
+            const name = document.getElementById('srv-name').value;
+            const price = parseInt(document.getElementById('srv-price').value);
+            const desc = document.getElementById('srv-desc').value;
+
+            try {
+                await db.collection('services').add({ name, price, desc });
+                alert("Layanan baru berhasil ditambahkan!");
+                e.target.reset();
+                document.getElementById('modal-new-service').classList.add('hidden');
+                fetchServicesCatalog();
+            } catch (err) {
+                console.error(err);
+                alert("Gagal menyimpan layanan.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Simpan Layanan';
+            }
+        }
+
+        async function deleteService(id) {
+            if(!confirm("Yakin ingin menghapus layanan ini dari katalog?")) return;
+            try {
+                await db.collection('services').doc(id).delete();
+                fetchServicesCatalog();
+            } catch(e) { alert("Gagal menghapus."); console.error(e); }
+        }
+
+        // ==========================================
+        // 7. ARTIKEL LOGIC (CREATE, EDIT, DELETE)
         // ==========================================
         async function fetchArticles() {
             try {
                 const snap = await db.collection('articles').get();
                 allArticles = [];
                 snap.forEach(doc => { const d = doc.data(); d.id = doc.id; allArticles.push(d); });
-                document.getElementById('stat-articles').innerText = allArticles.length;
                 renderArticlesList();
             } catch(e) { console.error(e); }
         }
@@ -954,19 +1294,27 @@
             let filtered = data.filter(art => (currentArtCatFilter === 'Semua') || (art.tag === currentArtCatFilter));
 
             if (filtered.length === 0) {
-                container.innerHTML = '<div class="col-span-full text-center text-gray-600 py-10 bg-solska-card rounded-2xl">Tidak ada artikel di kategori ini.</div>';
+                container.innerHTML = '<div class="col-span-full text-center text-gray-600 py-10 bg-solska-card rounded-2xl border border-solska-border">Tidak ada artikel di kategori ini.</div>';
                 return;
             }
 
             let html = '';
             filtered.forEach(art => {
                 html += `
-                <div class="bg-black border border-solska-border rounded-2xl p-3 flex items-center gap-4">
+                <div class="bg-black border border-solska-border rounded-2xl p-3 flex items-center gap-4 relative">
                     <div class="w-20 h-20 rounded-xl shrink-0 bg-cover bg-center border border-solska-border" style="background-image: url('${art.cover}')"></div>
-                    <div class="flex-1 overflow-hidden">
+                    <div class="flex-1 overflow-hidden pr-6">
                         <span class="text-[10px] bg-solska-yellow text-black font-bold px-2 py-0.5 rounded uppercase">${art.tag || 'Umum'}</span>
                         <h4 class="text-sm font-bold text-white uppercase mt-1 truncate">${art.title}</h4>
                         <p class="text-xs text-gray-500 truncate mt-0.5">${art.date || '-'}</p>
+                    </div>
+                    <!-- 3 Dots Menu -->
+                    <div class="absolute top-4 right-3">
+                        <button onclick="document.getElementById('dropdown-${art.id}').classList.toggle('hidden')" class="text-gray-400 hover:text-white px-2 py-1"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div id="dropdown-${art.id}" class="article-dropdown hidden absolute right-0 top-full mt-2 w-32 bg-solska-card border border-solska-border rounded-xl shadow-lg z-20 overflow-hidden">
+                            <button onclick="openEditArticle('${art.id}')" class="w-full text-left px-4 py-2 text-xs font-bold text-white hover:bg-solska-yellow hover:text-black transition">Edit Artikel</button>
+                            <button onclick="deleteArticle('${art.id}')" class="w-full text-left px-4 py-2 text-xs font-bold text-red-500 hover:bg-red-500 hover:text-white transition">Hapus</button>
+                        </div>
                     </div>
                 </div>`;
             });
@@ -988,43 +1336,113 @@
             renderArticlesList(res);
         }
 
-        async function handleCreateArticle(e) {
+        function resetArticleForm() {
+            document.getElementById('art-id-hidden').value = '';
+            document.getElementById('art-title').value = '';
+            document.getElementById('art-tag').value = 'Mitos & Fakta';
+            document.getElementById('art-content').value = '';
+            document.getElementById('art-image-url').value = '';
+            document.getElementById('art-preview-img').src = '';
+            document.getElementById('art-preview-img').classList.add('hidden');
+            document.getElementById('art-preview-placeholder').classList.remove('hidden');
+            document.getElementById('label-buat-edit-artikel').innerText = 'Buat Artikel Baru';
+            document.getElementById('btn-art-text').innerText = 'Publikasikan Artikel';
+        }
+
+        function openEditArticle(id) {
+            const art = allArticles.find(a => a.id === id);
+            if(!art) return;
+
+            document.getElementById('art-id-hidden').value = art.id;
+            document.getElementById('art-title').value = art.title;
+            document.getElementById('art-tag').value = art.tag;
+            
+            let rawContent = art.content;
+            if (rawContent.startsWith('<p>') && rawContent.endsWith('</p>')) {
+                rawContent = rawContent.substring(3, rawContent.length - 4);
+            }
+            document.getElementById('art-content').value = rawContent;
+
+            document.getElementById('art-image-url').value = art.cover;
+            document.getElementById('art-preview-img').src = art.cover;
+            document.getElementById('art-preview-img').classList.remove('hidden');
+            document.getElementById('art-preview-placeholder').classList.add('hidden');
+
+            document.getElementById('label-buat-edit-artikel').innerText = 'Edit Artikel';
+            document.getElementById('btn-art-text').innerText = 'Simpan Perubahan';
+
+            navTo('view-buat-artikel');
+        }
+
+        async function deleteArticle(id) {
+            if(!confirm("Yakin ingin menghapus artikel ini permanen?")) return;
+            try {
+                await db.collection('articles').doc(id).delete();
+                fetchArticles();
+            } catch(e) {
+                alert("Gagal menghapus artikel.");
+                console.error(e);
+            }
+        }
+
+        async function handleCreateEditArticle(e) {
             e.preventDefault();
             const btnText = document.getElementById('btn-art-text');
-            btnText.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Menyimpan Artikel...';
+            const originalText = btnText.innerText;
+            btnText.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Menyimpan...';
             document.getElementById('btn-submit-art').disabled = true;
 
+            const id = document.getElementById('art-id-hidden').value;
             const title = document.getElementById('art-title').value;
             const tag = document.getElementById('art-tag').value;
             const content = document.getElementById('art-content').value;
             const cover = document.getElementById('art-image-url').value;
 
             if(!cover) { 
-                alert("Tunggu proses upload gambar ImageBoss selesai!"); 
-                btnText.innerText = 'Publikasikan Artikel';
+                alert("Upload gambar cover terlebih dahulu!"); 
+                btnText.innerText = originalText;
                 document.getElementById('btn-submit-art').disabled = false;
                 return; 
             }
 
             try {
-                await db.collection('articles').add({
+                const payload = {
                     title, tag, cover, content: `<p>${content}</p>`, desc: content.substring(0, 100),
                     author: 'Admin', date: new Date().toLocaleDateString('id-ID', {day:'2-digit', month:'long', year:'numeric'})
-                });
-                alert("Artikel berhasil dipublikasikan!");
-                e.target.reset();
-                document.getElementById('art-preview-placeholder').classList.remove('hidden');
-                document.getElementById('art-preview-img').classList.add('hidden');
+                };
+
+                if (id) {
+                    await db.collection('articles').doc(id).update(payload);
+                    alert("Artikel berhasil diperbarui!");
+                } else {
+                    await db.collection('articles').add(payload);
+                    alert("Artikel berhasil dipublikasikan!");
+                }
+                
+                resetArticleForm();
                 fetchArticles();
                 navTo('view-artikel');
+            } catch(err) {
+                console.error(err);
+                alert("Terjadi kesalahan saat menyimpan artikel.");
             } finally {
-                btnText.innerText = 'Publikasikan Artikel';
+                btnText.innerText = originalText;
                 document.getElementById('btn-submit-art').disabled = false;
             }
         }
 
+        const origNavTo = navTo;
+        navTo = function(viewId, btnEl = null) {
+            if(viewId === 'view-buat-artikel' && !document.getElementById('art-id-hidden').value && document.getElementById('label-buat-edit-artikel').innerText !== 'Buat Artikel Baru') {
+                resetArticleForm();
+            } else if (viewId === 'view-buat-artikel' && !document.getElementById('art-id-hidden').value) {
+                resetArticleForm(); 
+            }
+            origNavTo(viewId, btnEl);
+        }
+
         // ==========================================
-        // 6. EDIT PROFILE + LOADING STATE
+        // 8. EDIT PROFILE
         // ==========================================
         async function handleUpdateProfile(e) {
             e.preventDefault();
